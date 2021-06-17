@@ -1,3 +1,14 @@
+#  Avorion-specific ignores
+#  since i'm just publishing the contents of my avorion mods folder (purely for my ease of access) this has to have some extra bits and pieces in here just to make it only keep the relevant stuff.
+# avorion workshop cache
+/workshop/
+# avorion client mod configuration
+/modconfig.lua
+# custom windows shortcuts i keep in this folder
+/*.lnk
+# sometimes i 7z old projects so that the client doesn't try to load them
+/*.7z
+
 # Compiled Lua sources
 luac.out
 
@@ -38,4 +49,3 @@ luac.out
 *.i*86
 *.x86_64
 *.hex
-
