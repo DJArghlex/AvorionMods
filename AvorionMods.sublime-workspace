@@ -1,0 +1,712 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"rglx",
+				"rglx-systemderandomizer"
+			],
+			[
+				"filename",
+				"filenameTruncated"
+			],
+			[
+				"carrier",
+				"carrier"
+			],
+			[
+				"is",
+				"is\tkeyword"
+			],
+			[
+				"desti",
+				"destinationChatId"
+			],
+			[
+				"Cache",
+				"Cache"
+			],
+			[
+				"foundNe",
+				"foundNewUserAdminStatus"
+			],
+			[
+				"sourceUser",
+				"sourceUserId"
+			],
+			[
+				"not",
+				"not"
+			],
+			[
+				"replicator",
+				"replicatorTargetUnselected"
+			],
+			[
+				"replicatortar",
+				"replicatorTargetSelected"
+			],
+			[
+				"turretFac",
+				"turretFactoryTitle"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "AutoResearchPatch-UAC/modinfo.lua",
+			"settings":
+			{
+				"buffer_size": 653,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"install p",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"pretty",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"Package Control: install\t",
+				"Package Control: Install Package"
+			],
+			[
+				"anaconda",
+				"Anaconda: Autoformat PEP8 Errors"
+			],
+			[
+				"conda",
+				"Anaconda: Vagrant Status"
+			],
+			[
+				"package control ",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package c",
+				"Package Control: Install Package"
+			],
+			[
+				"install package\t",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Install Package Control"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 130.0,
+		"history":
+		[
+			"load"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/E/Github/AvorionMods",
+		"/E/Github/AvorionMods/AncientTurretDecryptor",
+		"/E/Github/AvorionMods/AutoResearchPatch-DLCSystems",
+		"/E/Github/AvorionMods/AutoResearchPatch-LAC",
+		"/E/Github/AvorionMods/AutoResearchPatch-StationTrader",
+		"/E/Github/AvorionMods/AutoResearchPatch-TorpedoProducers",
+		"/E/Github/AvorionMods/AutoResearchPatch-UAC"
+	],
+	"file_history":
+	[
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/FightersIntoCorvettes/data/scripts/entity/merchants/fighterfactory.lua",
+		"/C/Users/rglx/AppData/Roaming/Sublime Text 3/Packages/ConvertSpacesToTabsOnSave/ConvertSpacesToTabsOnSave.py",
+		"/E/Github/AvorionMods/.gitignore",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/README.md",
+		"/C/Users/rglx/AppData/Roaming/Avorion/galaxies/defaultgalaxyrtyertyerty/server.ini",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/lib/productions.lua",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/lib/entity.lua",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/lib/class.lua",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/lib/galaxy.lua",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/lib/randomext.lua",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/lib/sellablefighter.lua",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/systems/shieldbooster.lua",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/lib/fightergenerator.lua",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/plangenerator/parts/partexample.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/FightersIntoCorvettes/modinfo.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/DerandomizerPatch-TorpedoProducers/data/scripts/systems/torpedoproducer.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/FighterRework12x/data/scripts/entity/merchants/fighterfactory.lua",
+		"/E/Games/Steam Games/steamapps/workshop/content/445220/2053583501/data/scripts/lib/SectorGenerator.lua",
+		"/E/Games/Steam Games/steamapps/workshop/content/445220/2053583501/data/scripts/systems/tpConfig.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/galaxies/defaultgalaxyrtyertyerty/serverlog 2021-06-15 04-32-53.txt",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/AutoResearchPatch-UAC/data/scripts/lib/AutoResearchIntegration.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/AutoResearchPatch-UAC - Copy/data/scripts/lib/AutoResearchIntegration.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/galaxies/defaultgalaxyrtyertyerty/serverlog 2021-06-15 04-28-58.txt",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/AutoResearchPatch-DLCSystems/data/scripts/lib/AutoResearchIntegration.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/AutoResearchPatch-DLCSystems/lib/AutoResearchIntegration.lua",
+		"/E/Games/Steam Games/steamapps/workshop/content/445220/2108001003/data/scripts/lib/AutoResearchIntegration.lua",
+		"/E/Games/Steam Games/steamapps/workshop/content/445220/1731575231/data/scripts/entity/merchants/researchstation.lua",
+		"/E/Games/Steam Games/steamapps/workshop/content/445220/1731575231/data/scripts/lib/AutoResearchIntegration.lua",
+		"/E/Games/Steam Games/steamapps/workshop/content/445220/2108001003/data/scripts/systems/SDKMainframeCivilianTCS.lua",
+		"/E/Games/Steam Games/steamapps/workshop/content/445220/2108001003/data/scripts/systems/MainframeCombatControl.lua",
+		"/E/Games/Steam Games/steamapps/workshop/content/445220/2108001003/data/scripts/systems/SDKMainframeCombatTCS.lua",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/commands/entitydbg-remove.lua",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/commands/entitydbg-target.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/galaxies/defaultgalaxyrtyertyerty/serverlog 2021-06-15 03-09-48.txt",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/commands/addprocrew.lua",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/commands/listentityscripts.lua",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/commands/entitydbg.lua",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/commands/entitydbg self.lua",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/commands/entitydbg target.lua",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/commands/entitydbg remove.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/NoRegrowDocksForPlayerStations/modinfo.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/FighterRework12x/modinfo.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/UtilityTurretsRangeEnhancement/modinfo.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/TurretFactoryTech51Blueprints/modinfo.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/AncientTurretDecryptor/modinfo.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/TurretReplicator/modinfo.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/AutoResearchPatch-LAC/modinfo.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/AutoResearchPatch-StationTrader/modinfo.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/AutoResearchPatch-TorpedoProducers/modinfo.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/AutoResearchPatch-UAC/modinfo.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/CraftIcons-Homeworld/modinfo.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/CraftIcons-PlanetaryAnnihilation/modinfo.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/FighterReworkMod/modinfo.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/FiveSecondTransportMode/modinfo.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/FoundableScrapyards/modinfo.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/AutoResearchPatch-DLCSystems/modinfo.lua",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/entity/merchants/scrapyard.lua",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/commands/addcrew.lua",
+		"/E/Games/Steam Games/steamapps/workshop/content/445220/1747899176/data/scripts/lib/entitydbg.lua",
+		"/E/Games/Steam Games/steamapps/workshop/content/445220/1747899176/data/scripts/commands/cheattarget.lua",
+		"/E/Games/Steam Games/steamapps/workshop/content/445220/1747899176/data/scripts/commands/report.lua",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/commands/echo.lua",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/commands/say.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/SimplyGateCompassIcons/modinfo.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/SystemsDerandomizer/modinfo.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/RepairDockRepairShipForCreditsCheat/modinfo.lua",
+		"/E/Games/Steam Games/steamapps/workshop/content/445220/1747899176/data/scripts/commands/resourcetool.lua",
+		"/E/Games/Steam Games/steamapps/workshop/content/445220/1747899176/data/scripts/player/report.lua",
+		"/E/Games/Steam Games/steamapps/workshop/content/445220/1747899176/data/scripts/player/cheattarget.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/2483780833/modinfo.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/NoRegrowDocksForPlayerStations/data/scripts/entity/regrowdocks.lua",
+		"/E/Games/Steam Games/steamapps/workshop/content/445220/2483780833/modinfo.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/modconfig.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/AutoResearchPatch-LAC/lib/AutoResearchIntegration.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/AutoResearchPatch-UAC/lib/AutoResearchIntegration.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/AutoResearchPatch-StationTrader/lib/AutoResearchIntegration.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/AutoResearchPatch-TorpedoProducers/lib/AutoResearchIntegration.lua",
+		"/E/Games/Steam Games/steamapps/workshop/content/445220/2099635425/data/scripts/systems/StationTrader.lua",
+		"/E/Games/Steam Games/steamapps/workshop/content/445220/2053583501/data/scripts/lib/upgradegenerator.lua",
+		"/E/Games/Steam Games/steamapps/workshop/content/445220/2053583501/modinfo.lua",
+		"/E/Games/Steam Games/steamapps/workshop/content/445220/2053583501/data/scripts/systems/torpedoproducer.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/AutoResearchPatch-DLCSystems/internal/dlc/blackmarket/systems/badcargowarningsystem.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/AutoResearchPatch-DLCSystems/internal/dlc/blackmarket/systems/hackingupgrade.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/AutoResearchPatch-DLCSystems/internal/dlc/blackmarket/systems/cargodetectionscrambler.lua",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/entity/wormhole.lua",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/entity/gate.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/galaxies/defaultgalaxyrtyertyerty/serverlog 2021-06-15 02-12-47.txt",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/sectors/gates.lua",
+		"/E/Games/Steam Games/steamapps/workshop/content/445220/2108001003/data/scripts/lib/upgradegenerator.lua",
+		"/E/Games/Steam Games/steamapps/workshop/content/445220/2060202851/data/scripts/systems/limmodule.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/galaxies/defaultgalaxyrtyertyerty/serverlog 2021-06-15 01-35-17.txt",
+		"/E/Games/Steam Games/steamapps/workshop/content/445220/2060202851/data/scripts/lib/upgradegenerator.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/FighterReworkMod/data/scripts/entity/merchants/fighterfactory.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/asdkjgasdjhagsdh/FighterReworkMod/data/scripts/entity/merchants/fighterfactory.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/galaxies/defaultgalaxyrtyertyerty/serverlog 2021-06-15 01-00-32.txt",
+		"/C/Users/rglx/AppData/Roaming/Avorion/ships/templates/floatingblocks/'Shipyard Nabaal'2.xml",
+		"/C/Users/rglx/AppData/Roaming/Avorion/ships/templates/floatingblocks/200 units doubleoffset.xml",
+		"/C/Users/rglx/AppData/Roaming/Avorion/ships/templates/floatingblocks/tripleoffset-40-scalable.xml",
+		"/C/Users/rglx/AppData/Roaming/Avorion/ships/templates/floatingblocks/'Shipyard Nabaal'1.xml",
+		"/C/Users/rglx/AppData/Roaming/Avorion/ships/templates/floatingblocks/'Shipyard Nabaal'3.xml",
+		"/E/Documents/Rainmeter/Skins/GerosMonitor/Taskbar/taskbar.ini",
+		"/C/Users/rglx/AppData/Roaming/Avorion/ships/templates/floatingblocks/Nabaali Fortitude2.xml",
+		"/C/Users/rglx/AppData/Roaming/Avorion/ships/templates/floatingblocks/[Cr1C]0.xml",
+		"/C/Users/rglx/AppData/Roaming/Avorion/ships/templates/floatingblocks/Nabaali Fortitude3.xml",
+		"/C/Users/rglx/AppData/Roaming/Avorion/ships/random crap/500-stack of ogonite stone.xml",
+		"/E/Documents/Desktop/asd/lcsd_brainchild/server.ini",
+		"/C/Users/rglx/AppData/Roaming/Avorion/ships/00 RGLX Ships/The Daiamid's Eye0.xml",
+		"/C/Users/rglx/AppData/Roaming/Avorion/ships/flx/sp_transport/sp_tanker_conversion1.xml",
+		"/C/Users/rglx/AppData/Roaming/Avorion/clientlog 2021-06-02 14-11-06.txt",
+		"/E/Downloads/Chrome Downloads/sp_transport_cubes.xml",
+		"/C/Users/rglx/AppData/Roaming/Avorion/ships/flx/sp_transport/sp_tanker_conversion0.xml",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/TurretReplicator/data/scripts/entity/merchants/rglx_turretreplicator.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/AncientTurretDecryptor/data/scripts/entity/merchants/rglx_ancientturretdecryptor.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/galaxies/devgalaxy-lightmods/admin.xml",
+		"/C/Users/rglx/AppData/Roaming/Avorion/clientlog 2021-06-02 14-08-06.txt",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/entity/merchants/equipmentdock.lua",
+		"/E/Games/Steam Games/steamapps/common/Avorion/data/scripts/lib/shop.lua",
+		"/E/Music/Exported Playlists/sg99-21jun1.m3u",
+		"/C/Users/rglx/AppData/Roaming/Avorion/galaxies/devgalaxy-lightmods/serverlog 2021-05-29 11-03-52.txt",
+		"/C/Users/rglx/AppData/Roaming/Avorion/galaxies/devgalaxy-lightmods/serverlog 2021-05-29 10-47-04.txt",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/UtilityTurretsRangeEnhancement/data/scripts/lib/weapongenerator.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/clientlog 2021-05-29 08-07-50.txt",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/TurretFactoryTech51Blueprints/data/scripts/entity/merchants/turretfactory.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/TurretFactoryTech51Blueprints/data/scripts/entity/merchants/rglx_ancientturretdecryptor.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/TurretFactoryTech51Blueprints/data/scripts/entity/merchants/rglx_turretreplicator.lua",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/TurretFactoryTech51Blueprints/data/localization/ru.po",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/TurretFactoryTech51Blueprints/data/localization/template.pot",
+		"/C/Users/rglx/AppData/Roaming/Avorion/mods/TurretFactoryTech51Blueprints/data/localization/zh.po"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 319.0,
+		"where_history":
+		[
+			"<project>",
+			"",
+			"<project>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"getbonuses",
+			"FighterPrice",
+			"fighter",
+			"FighterPrice",
+			"seed",
+			"displayChatMessage",
+			"chat",
+			"thanks",
+			"worm",
+			"industria",
+			"industric",
+			"autoResearch_systemTypeNames",
+			"systemTypeNames",
+			"index=\"1\"",
+			"index=1",
+			"ff00ff00",
+			"ff00ff",
+			"ff00ff00",
+			"/></item>",
+			"><block ",
+			"parent\\=\\\"\\d+\\\"",
+			">\n\t\t\t<block ",
+			"\n\t\t</item>",
+			"ff00ff00",
+			"index=\"1\" m",
+			"index=\"1\"",
+			"index=1",
+			"<?",
+			"\t\t<item parent=\"(.*)\" index=\"(.*)\">\n\t\t\t<block lx=\"(.*)\" ly=\"(.*)\" lz=\"(.*)\" ux=\"(.*)\" uy=\"(.*)\" uz=\"(.*)\" index=\"2\" material=\"3\" look=\"(.*)\" up=\"(.*)\" color=\"(^bfaea3)\"/>\n\t\t</item>",
+			"\t\t<item parent=\"(.*)\" index=\"(.*)\">\n\t\t\t<block lx=\"(.*)\" ly=\"(.*)\" lz=\"(.*)\" ux=\"(.*)\" uy=\"(.*)\" uz=\"(.*)\" index=\"2\" material=\"3\" look=\"(.*)\" up=\"(.*)\" color=\"(^ffbfaea3)\"/>\n\t\t</item>",
+			"\t\t<item parent=\"(.*)\" index=\"(.*)\">\n\t\t\t<block lx=\"(.*)\" ly=\"(.*)\" lz=\"(.*)\" ux=\"(.*)\" uy=\"(.*)\" uz=\"(.*)\" index=\"2\" material=\"3\" look=\"(.*)\" up=\"(.*)\" color=\"(^[ffbfaea3])\"/>\n\t\t</item>",
+			"\t\t<item parent=\"(.*)\" index=\"(.*)\">\n\t\t\t<block lx=\"(.*)\" ly=\"(.*)\" lz=\"(.*)\" ux=\"(.*)\" uy=\"(.*)\" uz=\"(.*)\" index=\"2\" material=\"3\" look=\"(.*)\" up=\"(.*)\" color=\"(.*)\"/>\n\t\t</item>",
+			"\t\t<item parent=\"(\\d+)\" index=\"(\\d+)\">\n\t\t\t<block lx=\"(.*)\" ly=\"(.*)\" lz=\"(.*)\" ux=\"(.*)\" uy=\"(.*)\" uz=\"(.*)\" index=\"2\" material=\"3\" look=\"1\" up=\"(.*)\" color=\"(.*)\"/>\n\t\t</item>",
+			"bfaea3",
+			"color\\=\\\"^[ffbfaea3]\\\"",
+			"ffff8c00",
+			"index=\"9\" material=\"0\"",
+			" index=\"0\" material=\"0\"",
+			"ancientturr",
+			"E:/",
+			"\\",
+			"buytrashfromplayer",
+			"onSellTrashButtonPressed",
+			".material",
+			"%_T",
+			"decryptresource",
+			"decryptionComplete",
+			"callable",
+			"decryptTurretIntoInventory",
+			"print",
+			"print(\"rglx_AncientTurretDecryptor: ",
+			"print",
+			"caption",
+			"\"Turret Decryptor\"",
+			"decryptButtonactive",
+			"decryptButtoncaption",
+			"TurretDecryptor",
+			"replicator",
+			"decryptQtyBox",
+			"replicate",
+			"replicateButton.",
+			"TurretReplicator.",
+			"planDisplayer",
+			"SellableFighter",
+			"prefix",
+			"name",
+			"diameter",
+			"anynils",
+			"0.3",
+			"getPriceAndTaxTest",
+			"...",
+			"utilityt",
+			"utility",
+			"reach",
+			"range",
+			"adaptMining",
+			"getint",
+			" * 100 -- game uses decameters to measure stuff so we gotta do some fun stuff",
+			"the game's native measurement.",
+			"in decimeters, ",
+			"generate",
+			"range",
+			"checkplayerdocked",
+			"fighterfactory.make",
+			"fighterfactory",
+			"fff0f5",
+			"68228b",
+			"index=\"520\" material=\"5\"",
+			"index=\"15\" material=",
+			"index=\"50\" material=",
+			"index=\"54\" material=\"6\"",
+			"index=\"56\" material=\"6\"",
+			"index=\"15\" material=\"6\"",
+			"index=\"56\" material=\"4\"",
+			"index=\"54\" material=\"6\"",
+			"index=\"56\" material=\"6\"",
+			"index=\"15\" material=\"6\"",
+			".* ([a-zA-Z0-9_]*\\.png)",
+			"prof",
+			"--.*",
+			"--",
+			"xx",
+			"calculateReplicationResources",
+			"Faction()",
+			"entity()",
+			"faction()",
+			"fact",
+			"addordrop",
+			"addordrop(",
+			"systems/",
+			"systems",
+			"syste",
+			"index=\"15\" material=\"6\"",
+			", path = \".*\"",
+			", path = \".*\"}",
+			"getgatename",
+			"name",
+			"reconstructionAllowed",
+			" index=\"1\" material=\"5\" ",
+			"material=\"0\"",
+			"m_file ",
+			", path = \"E.*\"",
+			", path = \"E:\\\\SteamLibrary\\\\steamapps\\\\workshop\\\\content\\\\445220\\\\.*\"",
+			", path = \"E:\\\\SteamLibrary\\\\steamapps\\\\workshop\\\\content\\\\445220\\\\2168122069\"",
+			"initMakeBlueprintsUI",
+			"getCreate",
+			"blueprint",
+			"ancient"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"/>\t</item>",
+			">\t<block ",
+			"parent=\"0\"",
+			"><block ",
+			"</item>",
+			"index=\"2\" material=\"3\"",
+			" index=\"2\" material=\"3\"",
+			"/storage/emulated/0/",
+			"/",
+			"",
+			"decryptTurretFromInventory",
+			"\"Ancient Technology Decryptor\"",
+			"decryptButton.active",
+			"decryptButton.caption",
+			"TurretDecryptor",
+			"decryptor",
+			"decrypt",
+			"decryptButton",
+			"AncientTurretDecryptor.",
+			"rand, ...",
+			"",
+			"game uses decameters to measure stuff so we gotta do some fun stuff",
+			"",
+			"ff0101",
+			"010101",
+			"index=\"9\" material=\"3\"",
+			"index=\"9\" material=",
+			"index=\"60\" material=",
+			"index=\"54\" material=\"4\"",
+			"index=\"56\" material=\"4\"",
+			"index=\"15\" material=\"0\"",
+			"index=\"54\" material=\"4\"",
+			"index=\"56\" material=\"4\"",
+			"index=\"15\" material=\"0\"",
+			"table.insert(CraftIcons,\"data/textures/icons/pixel/rglx_planetaryannihilationtacticalicons/\\1\")",
+			"table.insert(CraftIcons,\"data/textures/icons/pixel/rglx_planetaryannihilationtacticalicons/\\1.png\")",
+			"",
+			"#",
+			"index=\"15\" material=\"0\"",
+			"",
+			"}",
+			"",
+			" index=\"520\" material=\"5\" ",
+			"material=\"5\"",
+			"",
+			"ScrapyardPlayer.",
+			"\\1,0,\\3",
+			"\\1,0,\\2",
+			"\\n",
+			"\\1,\\2,\\3",
+			"",
+			",0,",
+			"0",
+			"1",
+			"15",
+			"material=\"4\"",
+			"",
+			"\\t",
+			"<ColorMaskHSV x=\"0.8\" y=\"1\" z=\"1\" />",
+			"<ColorMaskHSV x=\"0.8\" y=\"0.199999988\" z=\"0.0457687452\" />",
+			"[Emissive]\n200/0/255",
+			"",
+			"§",
+			"\\2",
+			"\\n",
+			"\\1",
+			"",
+			"\\1",
+			"",
+			"\\1",
+			"",
+			"\\1\\n",
+			"",
+			"\\1",
+			"\\n",
+			"",
+			"\\1",
+			"'",
+			"\\t",
+			"  ",
+			" ",
+			" #",
+			"|",
+			"/storage/emulated/0/MusicCopy/",
+			"/storage/emulated/0",
+			"/",
+			"\" + ircuser[\"nick\"] + \"",
+			", \\1",
+			", \\`",
+			"\\1 ",
+			"\\1\\n",
+			"",
+			"\\1\\n",
+			"",
+			" ",
+			"\\xf0",
+			"",
+			"\\1",
+			" n ",
+			"pubm ",
+			"msgm ",
+			"msgm",
+			"'",
+			"<@\\1>",
+			"\\2",
+			"telegram.irc.bridge",
+			"$1\\n",
+			"$1",
+			"",
+			"\\n",
+			" ",
+			"",
+			"\\n",
+			"(c.",
+			"g.",
+			".g",
+			".\\n",
+			"",
+			"$1 ",
+			"Cario",
+			"Mike",
+			"CyberKitsune: ",
+			"Mike",
+			"\\1: ",
+			"Hiro",
+			"Mike",
+			"Shark",
+			"Cario"
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": false,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "AutoResearchPatch-UAC/modinfo.lua",
+					"selected": true,
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 653,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 109.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 209.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "AvorionMods.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 325.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 592.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 226.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

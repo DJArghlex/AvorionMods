@@ -1,0 +1,1 @@
+self.restorationTime = 5

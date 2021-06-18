@@ -9,6 +9,9 @@
 # sometimes i 7z old projects so that the client doesn't try to load them
 /*.7z
 
+# redacting some things im not sure i can publish like this.
+CraftIcons-PlanetaryAnnihilation/data/textures/icons/pixel/rglx_planetaryannihilationtacticalicons/icon_*.png
+
 # Compiled Lua sources
 luac.out
 
@@ -49,3 +52,4 @@ luac.out
 *.i*86
 *.x86_64
 *.hex
+
