@@ -22,7 +22,7 @@ local Dialog = include("dialogutility")
 
 TurretReplicator = {}
 TurretReplicator.interactionThreshold = 30000
-local replicatorDebug = true -- change to false to suppress extraneous output
+local replicatorDebug = false -- change to false to suppress extraneous output
 local inventory = nil
 local replicateButton = nil
 
@@ -66,7 +66,6 @@ end
 
 
 function TurretReplicator.interactionPossible(playerIndex, option)
-	TurretReplicator.printLog("DEBUG","interactionPossible(): checked faction interaction threshold")
 	return CheckFactionInteraction(playerIndex, TurretReplicator.interactionThreshold)
 end
 
