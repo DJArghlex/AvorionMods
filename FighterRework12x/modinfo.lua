@@ -10,7 +10,7 @@ meta = {
 
 	dependencies = {
 		{id = "2501154545", exact = "*.*"},
-		{id = "Avorion", min = "1.3.*", max = "1.3.8"}
+		{id = "Avorion", exact = "2.0.*"}
 	},
 
 	serverSideOnly = false,

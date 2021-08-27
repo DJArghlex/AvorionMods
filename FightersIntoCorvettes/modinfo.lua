@@ -9,7 +9,7 @@ meta = {
 	version = "0.0.1",
 
 	dependencies = {
-		{id = "Avorion", min = "1.3.7", max = "1.3.8"},
+		{id = "Avorion", exact = "2.0.*"}
 		{id = "2501154545", incompatible = true } -- fighter rework mod
 
 	},

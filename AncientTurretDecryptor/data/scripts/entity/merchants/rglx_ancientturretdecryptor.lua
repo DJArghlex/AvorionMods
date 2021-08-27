@@ -213,7 +213,7 @@ function AncientTurretDecryptor.decryptTurretFromInventory(inventoryIndex)
 		end
 
 		local receiptString = Format(buyer.name .. " paid ".. decryptcost .." " .. decryptresource.name .. " to decrypt an Ancient item.")
-		buyer:payResource(receiptString,decryptcost,Material(indexedTurret.material.value))
+		buyer:payResource(receiptString,decryptcost,indexedTurret.material)
 
 		local decryptedTurret = indexedTurret
 		decryptedTurret.ancient = false

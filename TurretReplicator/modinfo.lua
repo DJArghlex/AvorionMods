@@ -9,12 +9,12 @@ meta = {
 	version = "0.2",
 
 	dependencies = {
-		{id = "Avorion", min = "1.3.7", max = "1.3.8"}
+		{id = "Avorion", exact = "2.0.*"}
 	},
 
 	serverSideOnly = false,
 	clientSideOnly = false,
 	saveGameAltering = false,
 	
-	contact = "comments section on Steam Workshop page",
+	contact = "Steam Workshop page",
 }
