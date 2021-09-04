@@ -11,7 +11,7 @@ meta = {
 	dependencies = {
 		{id = "2053583501", exact = "*.*"}, -- torpedo producers
 		{id = "1731575231", exact = "*.*"}, -- auto-research
-        {id = "Avorion", min = "1.3.7", = "2.0.*"}
+        {id = "Avorion", min = "1.3.8"}
 	},
 
 	serverSideOnly = false,

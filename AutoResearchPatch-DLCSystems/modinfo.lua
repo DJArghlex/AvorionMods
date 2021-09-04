@@ -10,7 +10,7 @@ meta = {
 	version = "0.0.1",
 	dependencies = {
 		{id = "1731575231", exact = "*.*"}, -- auto-research
-		{id = "Avorion", exact = "2.0.*"}
+        {id = "Avorion", min = "1.3.8"}
 	},
 
 	serverSideOnly = false,
