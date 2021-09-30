@@ -1,0 +1,1 @@
+allowWreckageYardForPlayers = true

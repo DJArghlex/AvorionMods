@@ -11,7 +11,7 @@ meta = {
 	dependencies = {
 		{id = "2054946409", exact = "*.*"}, -- UACs
 		{id = "1731575231", exact = "*.*"}, -- auto-research
-        {id = "Avorion", min = "2.0.6"}
+        {id = "Avorion", min = "2.*"}
 	},
 
 	serverSideOnly = false,
