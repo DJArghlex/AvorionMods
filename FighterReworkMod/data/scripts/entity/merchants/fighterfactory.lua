@@ -10,7 +10,7 @@ function FighterFactory.makeFighter(type, plan, turret, ...)
 	-- only change armed fighters
 	if turret then
 		-- change crew, size, and durability to make sense
-		generatedFighter.crew = generatedFighter.crew * fightersPerWing
+		--generatedFighter.crew = generatedFighter.crew * fightersPerWing
 		generatedFighter.diameter = generatedFighter.diameter * math.pow(fightersPerWing,(1/2)) -- this one is kinda weird. i think it's being exponentified somehow but we'll work with it by bullshitting in something else.
 		generatedFighter.durability = generatedFighter.durability * fightersPerWing
 		weaponsToModify = {}
