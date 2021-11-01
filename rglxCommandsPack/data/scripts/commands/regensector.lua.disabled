@@ -1,0 +1,54 @@
+package.path = package.path .. ";data/scripts/lib/?.lua"
+package.path = package.path .. ";data/scripts/?.lua"
+package.path = package.path .. ";data/scripts/player/background/simulation/?.lua"
+
+local SectorSpecifics = include ("sectorspecifics")
+local SectorGenerator = include ("SectorGenerator")
+
+commandName = "/regenSector"
+commandDescription = "Regenerates this sector, without touching player/alliance ships."
+commandHelp = ""
+
+function getDescription()
+	return commandDescription
+end
+
+function getHelp()
+	return commandDescription .. " Usage: " .. commandName .. " " .. commandHelp
+end
+
+
+function execute(sender, commandName, ...)
+	local args = {...}
+
+	if onClient() then
+
+		return
+	end
+	
+	--print("generating sector: " .. arg)
+
+	return 1, commandName .. ": Not implemented yet.", commandName .. ": Not implemented yet."
+
+	-- clear sector except for player's entities
+	local sector = Sector()
+	for _, entity in pairs({sector:getEntities()}) do
+		if not entity.playerOrAllianceOwned then
+			sector:deleteEntity(entity)
+		end
+	end
+
+	sector:collectGarbage()
+	local currentX, currentY = sector:getCoordinates()
+
+	local specs = SectorSpecifics(currentX, currentY, Seed())
+	specs:addTemplates()
+
+	for _, template in pairs(specs.templates) do
+		template.generate(Faction(), sector.seed, sector:getCoordinates())
+	end
+
+	returnValue = commandName .. ": Regeneration complete."
+	print( player.name .. returnValue )
+	return 0, returnValue, returnValue
+end
