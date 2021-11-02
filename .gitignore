@@ -6,6 +6,7 @@
 /modconfig.lua
 # custom windows shortcuts i keep in this folder
 /*.lnk
+/stashed/
 # sometimes i 7z old projects so that the client doesn't try to load them
 /*.7z
 
