@@ -11,7 +11,7 @@ meta = {
 	dependencies = {
 		{id = "2099635425", exact = "*.*"}, -- station traders
 		{id = "1731575231", exact = "*.*"}, -- auto-research
-        {id = "Avorion", min = "2.*", max = "2.0.7"}
+        {id = "Avorion", exact = "*.*"}
 	},
 
 	serverSideOnly = false,

@@ -55,3 +55,4 @@ luac.out
 
 *.sublime-workspace
 *.sublime-project
+*.lnk
