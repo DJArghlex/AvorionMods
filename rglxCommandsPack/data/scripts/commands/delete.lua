@@ -1,8 +1,8 @@
 package.path = package.path .. ";data/scripts/lib/?.lua"
 
-commandName = "/addProCrew"
-commandDescription = "Adds a fully professional crew to a ship."
-commandHelp = ""
+commandName = "/delete"
+commandDescription = "Deletes an entity using a specified method of destruction."
+commandHelp = "[jump/explode/vanish]"
 
 function getDescription()
 	return commandDescription
@@ -15,8 +15,13 @@ end
 
 function execute(sender, commandName, ...)
 	local args = ...
-
 	local player = Player()
+
+	if onClient() then
+		returnValue = "Execution on client forbidden."
+		return 1, returnValue, returnValue
+	end
+	
 	if not player then
 		returnValue = commandName .. ": Player isn't present?"
 		return 1, returnValue, returnValue
@@ -63,6 +68,6 @@ function execute(sender, commandName, ...)
 		return 1, returnValue, returnValue
 	end
 
-	print( player.name .. " "..returnValue )
+	print( player.name .. " ran " .. returnValue )
 	return 0, returnValue, returnValue
 end

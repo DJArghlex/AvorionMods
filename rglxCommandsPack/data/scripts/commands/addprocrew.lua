@@ -16,9 +16,14 @@ end
 
 
 function execute(sender, commandName, ...)
-	local args = {...}
-
+	local args = ...
 	local player = Player()
+
+	if onClient() then
+		returnValue = "Execution on client forbidden."
+		return 1, returnValue, returnValue
+	end
+	
 	if not player then
 		returnValue = commandName .. ": Player isn't present?"
 		return 1, returnValue, returnValue
@@ -126,6 +131,6 @@ function execute(sender, commandName, ...)
 	craft.crew = newCrew
 
 	returnValue = commandName .. ": Re-crewed " .. craft.title .. " '" .. craft.name .."' owned by " .. Owner(craft).name
-	print( player.name .. returnValue )
+	print( player.name .. " ran " .. returnValue )
 	return 0, returnValue, returnValue
 end

@@ -14,9 +14,14 @@ end
 
 
 function execute(sender, commandName, ...)
-	local args = {...}
-	
+	local args = ...
 	local player = Player()
+
+	if onClient() then
+		returnValue = "Execution on client forbidden."
+		return 1, returnValue, returnValue
+	end
+	
 	if not player then
 		return 1, "", commandName .. ": Player isn't present?"
 	end
@@ -32,6 +37,6 @@ function execute(sender, commandName, ...)
 	craft.shieldDurability = craft.shieldMaxDurability
 
 	returnValue = commandName .. ": Repaired " .. craft.title .. " " .. craft.name
-	print( player.name .. returnValue )
+	print( player.name .. " ran " .. returnValue )
 	return 0, returnValue, returnValue
 end
