@@ -31,3 +31,10 @@ pull requests welcome via the issues page.
 		- unloads the sector completely, then deletes its file from the galaxy (or just moves it)
 	- attaching deleteentityonplayersleft.lua to everything in the galaxy that isn't a player/alliance/story craft [probably a bad idea]
 - equipment/goods trading windows: disable buy/sell button if button was pressed more times than items to buy/sell
+- energy signature suppressor changes
+	- use a predefined plan instead of random stations
+	- have them self-destruct when empty
+	- allow recharging or stacking additional ones on top of them
+	- server admin menu for making them permanent
+- neutral zone beacon
+	- same as energy signature suppressor, but with more ... neutral-ness?
