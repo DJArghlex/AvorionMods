@@ -2,7 +2,7 @@
 
 basically just off-site storage for the sources
 
-pull requests welcome via the issues page.
+pull requests welcome via the issues page or via their steam workshop pages
 
 
 ## planned mods
@@ -24,7 +24,7 @@ pull requests welcome via the issues page.
 - sector regenerator - possible methods
 	- out-of-band system
 		- reads sector files and faction databases to determine what entities are owned by which faction (and wether it's safe to delete the sector or not)
-		- dead pending either a) response from boxelware with some simple insights into the format of the file or b) response 
+		- dead pending either a) response from boxelware with some simple insights into the format of the file or b) untangling the format my own self 
 	- command that does the following [possible? may need research]
 		- locks a sector (forbids players entering it)
 		- kicks all player/alliance crafts out of it

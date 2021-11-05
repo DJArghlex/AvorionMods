@@ -176,7 +176,11 @@ function execute(sender, commandName, ...)
 			returnValue = returnValue .. "    Alliance ships: " .. comma_value(gameSettingsObject.maximumAllianceShipsPerMember) .. " ships per alliance member\n"
 		end
 	else
-		returnValue = returnValue .. "    Alliance ships: " .. comma_value(gameSettingsObject.maximumAllianceShips) .. " alliance ships\n"
+		if gameSettingsObject.maximumAllianceStations > 0 then
+			returnValue = returnValue .. "    Alliance ships: " .. comma_value(gameSettingsObject.maximumAllianceStations) .. " ships\n"
+		else
+			returnValue = returnValue .. "    Alliance ships: unlimited\n"
+		end
 	end
 
 	if gameSettingsObject.maximumAllianceStationsPerMember > 0 then
@@ -187,7 +191,11 @@ function execute(sender, commandName, ...)
 			returnValue = returnValue .. "    Alliance stations: " .. comma_value(gameSettingsObject.maximumAllianceStationsPerMember) .. " stations per alliance member\n"
 		end
 	else
-		returnValue = returnValue .. "    Alliance stations: " .. comma_value(gameSettingsObject.maximumAllianceStations) .. " alliance stations\n"
+		if gameSettingsObject.maximumAllianceStations > 0 then
+			returnValue = returnValue .. "    Alliance stations: " .. comma_value(gameSettingsObject.maximumAllianceStations) .. " stations\n"
+		else
+			returnValue = returnValue .. "    Alliance stations: unlimited\n"
+		end
 	end
 
 

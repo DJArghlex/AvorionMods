@@ -57,3 +57,4 @@ luac.out
 *.sublime-workspace
 *.sublime-project
 *.lnk
+modconfigasd.lua
