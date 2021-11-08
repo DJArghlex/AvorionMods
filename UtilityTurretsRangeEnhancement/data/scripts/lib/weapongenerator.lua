@@ -3,7 +3,7 @@
 -- v0.0.1
 
 
--- range adjustments. multiplies by the multiplier, then adds 5 kilometers
+-- range adjustments. multiplies by the multiplier, then adds 5 kilometers onto the result.
 purifyingHarvesterRangeMultiplier = 2.5
 rawHarvesterRangeMultiplier = 2.5
 repairBeamRangeMultiplier = 2.5
@@ -19,7 +19,6 @@ function WeaponGenerator.generateMiningLaser(rand, ...)
 	returnedWeapon = oldGenerateFunctionMining(rand, ...)
 	-- make our changes
 	returnedWeapon.reach = baseRangeAddition + math.abs( returnedWeapon.reach * purifyingHarvesterRangeMultiplier )
-	print(returnedWeapon.reach)
 	-- then return it back to whoever called us to begin with.
 	return returnedWeapon
 end
@@ -29,7 +28,6 @@ local oldGenerateFunctionSalvaging = WeaponGenerator.generateSalvagingLaser
 function WeaponGenerator.generateSalvagingLaser(rand, ...)
 	returnedWeapon = oldGenerateFunctionSalvaging(rand, ...)
 	returnedWeapon.reach = baseRangeAddition + math.abs( returnedWeapon.reach * purifyingHarvesterRangeMultiplier )
-	print(returnedWeapon.reach)
 	return returnedWeapon
 end
 
@@ -38,7 +36,6 @@ local oldGenerateFunctionRMining = WeaponGenerator.generateRawMiningLaser
 function WeaponGenerator.generateRawMiningLaser(rand, ...)
 	returnedWeapon = oldGenerateFunctionRMining(rand, ...)
 	returnedWeapon.reach = baseRangeAddition + math.abs( returnedWeapon.reach * rawHarvesterRangeMultiplier )
-	print(returnedWeapon.reach)
 	return returnedWeapon
 end
 
@@ -47,7 +44,6 @@ local oldGenerateFunctionRSalvaging = WeaponGenerator.generateRawSalvagingLaser
 function WeaponGenerator.generateRawSalvagingLaser(rand, ...)
 	returnedWeapon = oldGenerateFunctionRSalvaging(rand, ...)
 	returnedWeapon.reach = baseRangeAddition + math.abs( returnedWeapon.reach * rawHarvesterRangeMultiplier )
-	print(returnedWeapon.reach)
 	return returnedWeapon
 end
 
@@ -56,7 +52,6 @@ local oldGenerateFunctionRepair = WeaponGenerator.generateRepairBeamEmitter
 function WeaponGenerator.generateRepairBeamEmitter(rand, ...)
 	returnedWeapon = oldGenerateFunctionRepair(rand, ...)
 	returnedWeapon.reach = baseRangeAddition + math.abs( returnedWeapon.reach * repairBeamRangeMultiplier )
-	print(returnedWeapon.reach)
 	return returnedWeapon
 end
 
@@ -65,6 +60,5 @@ local oldGenerateFunctionForce = WeaponGenerator.generateForceGun
 function WeaponGenerator.generateForceGun(rand, ...)
 	returnedWeapon = oldGenerateFunctionForce(rand, ...)
 	returnedWeapon.reach = baseRangeAddition + math.abs( returnedWeapon.reach * forceGunRangeMultiplier )
-	print(returnedWeapon.reach)
 	return returnedWeapon
 end

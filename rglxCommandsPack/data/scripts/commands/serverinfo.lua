@@ -1,10 +1,10 @@
 package.path = package.path .. ";data/scripts/lib/?.lua"
 
-commandName = "/rules"
-commandDescription = "Shows the galaxy's rules."
+commandName = "/serverinfo"
+commandDescription = "Shows some more information about the server."
 commandHelp = ""
 
-local rulesFile = Server().folder .. "/rules.txt"
+local rulesFile = Server().folder .. "/serverinfo.txt"
 
 function checkIfFileExists(name)
 	local f=io.open(name,"r")
@@ -30,7 +30,7 @@ function execute(sender, commandName, ...)
 		return 1, returnValue, returnValue
 	end
 	
-	returnValue = "Galactic rules are as follows:\n"
+	returnValue = "Server information:\n"
 
 	if checkIfFileExists(rulesFile) then
 		local FILE = assert(io.open(rulesFile, "r"))
@@ -39,10 +39,10 @@ function execute(sender, commandName, ...)
 		FILE = nil
 	else
 		-- file isn't present. return a default string of some kind.
-		print(commandName .. ": Galaxy has no rules configured. Place some text in a file called rules.txt in the root of your galaxy.")
-		returnValue = "This galaxy has no rules configured. Ask your administrators."
+		print(commandName .. ": Galaxy has no server information configured. Place some text in a file called serverinfo.txt in the root of your galaxy.")
+		returnValue = "This galaxy has no server information configured. Ask your administrators."
 	end
 
-	print( player.name .. " requested galaxy's rules." )
+	print( player.name .. " requested galaxy's server information." )
 	return 0, returnValue, returnValue
 end

@@ -18,6 +18,7 @@ end
 function execute(sender, commandName, ...)
 	local args = ...
 	local player = Player()
+	local returnValue = nil
 
 	if onClient() then
 		returnValue = "Execution on client forbidden."

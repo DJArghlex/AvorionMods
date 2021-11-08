@@ -23,14 +23,7 @@ local function comma_value(amount) -- from http://lua-users.org/wiki/FormattingN
 	return formatted
 end
 
-local function file_exists(file) -- https://stackoverflow.com/questions/11201262/
-	local f = io.open(file, "rb")
-	if f then f:close() end
-	return f ~= nil
-end
-
 local function lines_from(file) -- https://stackoverflow.com/questions/11201262/
-	if not file_exists(file) then return {} end
 	lines = {}
 	for line in io.lines(file) do 
 		lines[#lines + 1] = line
@@ -74,6 +67,7 @@ end
 function execute(sender, commandName, ...)
 	local args = ...
 	local player = Player()
+	local returnValue = nil
 
 	if onClient() then
 		returnValue = "Execution on client forbidden."
@@ -85,7 +79,7 @@ function execute(sender, commandName, ...)
 	local serverSettingsObject = Server()
 	local serverConfig = readIniFileToTable(serverSettingsObject.folder .. "/server.ini")
 
-	local returnValue = "Galactic limits are as follows:\n"
+	returnValue = "Galactic limits are as follows:\n"
 
 	-- maximum ship and station volume
 	if gameSettingsObject.unlimitedShipSize then
