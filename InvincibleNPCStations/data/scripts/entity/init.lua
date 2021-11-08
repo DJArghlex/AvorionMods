@@ -32,6 +32,9 @@ if onServer() then
 
 				entity.crew = entity.idealCrew -- reset crew from pre-2.0 stations because that's why some stations are decaying damage-wise
 
+				entityBoarding = Boarding(entity.id)
+				entityBoarding.boardable = false -- prevent boarding, even though hull is already repaired and you can't board undamaged stations
+
 			end
 		end
 	end
