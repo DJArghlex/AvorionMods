@@ -1,4 +1,3 @@
-
 local staticSuppressorPlanList = {}
 
 -- add new plans just like this, putting them in data/plans/energysuppressor/<your plan name>.xml
@@ -6,9 +5,11 @@ table.insert(staticSuppressorPlanList,"mightybrankor_modular01_satellite") -- sa
 table.insert(staticSuppressorPlanList,"rglx_hiigaran_junk_satellite") -- satellite made with a bunch of random hiigaran junk parts i had lying around
 table.insert(staticSuppressorPlanList,"sivcorp_junkclan_satellite") -- satellite made with sivcorp's junk clan ship modules
 
+print("rglx-ESSImprovements: loaded into an inventory item!")
+
 -- overwrite existing activate function
 function activate(item)
-
+	print("rglx-ESSImprovements: someone activated an improved energy signature suppressor...")
 	local craft = Player().craft
 	if not craft then return false end
 
@@ -41,6 +42,18 @@ function activate(item)
 
 	-- pick a plan at supposed random from our list of plans
 	local planFilename = "data/plans/energysuppressor/" .. staticSuppressorPlanList[math.random(1, #staticSuppressorPlanList)] .. ".xml"
+
+
+	print("rglx-ESSImprovements: loading plan ".. planFilename .. " ...")
+	-- load our plan
+	local plan = LoadPlanFromFile(planFilename)
+
+	if plan == nil then
+		-- something went wrong loading our plan- let's bail.
+		print("rglx-ESSImprovements: failed to load a plan! bailing!")
+		return false
+	end
+	print("rglx-ESSImprovements: loaded plan ".. planFilename .. " for an energy suppressor - " .. plan.numBlocks .. " total blocks")
 
 	-- force the plan's material type, converting unsupported blocks (like shields and integrity fields) to hull
 	plan:forceMaterial(Material(MaterialType.Iron))
