@@ -321,6 +321,12 @@ function TurretReplicator.replicatorTargetSelected()
 		return
 	end
 
+	if tonumber(replicateQtyBox.text) == nil then -- number is less than 1 (aka zero or a negative number)
+		replicateButton.active = false
+		replicateButton.caption = "Can't replicate. Quantity isn't a number."
+		return
+	end
+	
 	if tonumber(replicateQtyBox.text) < 1 then -- number is less than 1 (aka zero or a negative number)
 		replicateButton.active = false
 		replicateButton.caption = "Can't replicate. Invalid quantity."

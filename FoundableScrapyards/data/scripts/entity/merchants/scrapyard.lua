@@ -213,6 +213,40 @@ function Scrapyard.initUI()
     warnWindow:createButton(vsplit.right, "Cancel"%_t, "onCancelButtonPress")
 end
 
+function Scrapyard.onShowWindow()
+    visible = true
+
+    local ship = Player().craft
+    if not ship then return end
+
+    -- get the plan of the player's ship
+    local plan = ship:getFullPlanCopy()
+    planDisplayer.plan = plan
+
+    if ship.isDrone then
+        sellButton.active = false
+        sellWarningLabel:hide()
+    else
+        sellButton.active = true
+        sellWarningLabel:show()
+    end
+
+    uiMoneyValue = Scrapyard.getShipValue(plan)
+
+	if Scrapyard.allowWreckageYard() == true then
+	    -- licenses
+	    priceLabel1.caption = "¢${money}"%_t % {money = Scrapyard.getLicensePrice(Player(), 5)}
+	    priceLabel2.caption = "¢${money}"%_t % {money = Scrapyard.getLicensePrice(Player(), 15)}
+	    priceLabel3.caption = "¢${money}"%_t % {money = Scrapyard.getLicensePrice(Player(), 30)}
+	    priceLabel4.caption = "¢${money}"%_t % {money = Scrapyard.getLicensePrice(Player(), 60)}
+	end
+    Scrapyard.getLicenseDuration()
+
+    -- turrets
+    inventory:fill(ship.factionIndex, InventoryItemType.Turret)
+
+end
+
 -- store function safely
 Scrapyard.vanillaUpdateServer = Scrapyard.updateServer
 -- then overwrite with our wrapper
@@ -221,6 +255,28 @@ function Scrapyard.updateServer(timeStep)
 		Scrapyard.vanillaUpdateServer(timeStep)
 	else
 		return
+	end
+end
+
+-- store function safely
+Scrapyard.vanillaUpdateClient = Scrapyard.UpdateClient
+-- then overwrite with our wrapper
+function Scrapyard.updateClient(timeStep)
+	if Scrapyard.allowWreckageYard() == true then
+		Scrapyard.vanillaUpdateClient(timeStep)
+	else
+		return
+	end
+end
+
+-- store function safely
+Scrapyard.vanillaHasLicense = Scrapyard.hasLicense
+-- then overwrite with our wrapper
+function Scrapyard.hasLicense(factionIndex)
+	if Scrapyard.allowWreckageYard() == true then
+		Scrapyard.vanillaHasLicense(factionIndex)
+	else
+		return 60 * 60 -- just return 1 hour
 	end
 end
 

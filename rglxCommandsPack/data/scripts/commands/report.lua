@@ -62,8 +62,10 @@ function execute(sender, commandName, ...)
 	-- print to the reports file
 	local reportsFile = server.folder .. "/player-reports.log" -- location to additionally log reports
 	reportsFileHandle = io.open(reportsFile,"a+")
-	reportsFileHandle:write(reportLine .. "\n")
-	io.close(reportsFileHandle)
+	if reportsFileHandle ~= nil then
+		reportsFileHandle:write(reportLine .. "\n")
+		io.close(reportsFileHandle)
+	end
 
 	print("/report: report logged into separate file: "..reportsFile)
 

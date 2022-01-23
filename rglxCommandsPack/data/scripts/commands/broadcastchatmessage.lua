@@ -17,6 +17,12 @@ function execute(sender, commandName, ...)
 	local args = {...}
 	local player = Player()
 	local returnValue = "invalid arguments. see documentation on Player():sendChatMessage()"
+	
+	-- Player() returns nil if this is being run from the console, not in-game - let's just fake a "console" player for now until that gets patched.
+	if player == nil then
+		player = {}
+		player.name = "Console"
+	end
 
 	-- forbid client execution
 	if onClient() then

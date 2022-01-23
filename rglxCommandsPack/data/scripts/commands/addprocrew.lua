@@ -1,10 +1,11 @@
 package.path = package.path .. ";data/scripts/lib/?.lua"
 
 local CaptainGenerator = include("captaingenerator")
+local CaptainUtility = include("captainutility")
 
 local commandName = "/addProCrew"
-local commandDescription = "Adds a fully professional crew to a ship."
-local commandHelp = ""
+local commandDescription = "Adds a fully professional crew to a ship, with Tier 3, Level 5"
+local commandHelp = "[str: captain primary class] [str: captain secondary class]"
 
 function getDescription()
 	return commandDescription
@@ -14,9 +15,39 @@ function getHelp()
 	return commandDescription .. " Usage: " .. commandName .. " " .. commandHelp
 end
 
+local function pickCaptainClassFromName(className)
+	if className == "None" then
+		return CaptainUtility.ClassType.None
+
+	elseif className == "Commodore" then
+		return CaptainUtility.ClassType.Commodore
+
+	elseif className == "Smuggler" then
+		return CaptainUtility.ClassType.Smuggler
+
+	elseif className == "Merchant" then
+		return CaptainUtility.ClassType.Merchant
+
+	elseif className == "Miner" then
+		return CaptainUtility.ClassType.Miner
+
+	elseif className == "Scavenger" then
+		return CaptainUtility.ClassType.Scavenger
+
+	elseif className == "Explorer" then
+		return CaptainUtility.ClassType.Explorer
+
+	elseif className == "Daredevil" then
+		return CaptainUtility.ClassType.Daredevil
+
+	else
+		return nil
+
+	end
+end
 
 function execute(sender, commandName, ...)
-	local args = ...
+	local args = {...}
 	local player = Player()
 	local returnValue = nil
 
@@ -105,14 +136,20 @@ function execute(sender, commandName, ...)
 	end
 
 
-	-- preserve our captain (or make a new one)
-	local captain = craft:getCaptain()
-	if captain then
-		idealCrew:setCaptain(captain)
-	else
-		local generator = CaptainGenerator()
-		idealCrew:setCaptain(generator:generate())
+	local primaryClass = nil
+	local secondaryClass = nil
+	if args[1] ~= nil and args[2] ~= nil then
+		primaryClass = pickCaptainClassFromName(args[1])
+		secondaryClass = pickCaptainClassFromName(args[2])
 	end
+	if primaryClass ~= nil and secondaryClass ~= nil then
+		print("custom captain classes specified:",args[1],args[2])
+		newCrew:setCaptain(CaptainGenerator():generate(3,5,primaryClass,secondaryClass))
+	else
+		print("generating random T3 Lv5 Dual-class Captain")
+		newCrew:setCaptain(CaptainGenerator():generate(3,5))
+	end
+
 
 	-- preserve our existing boarders and security
 	print( "Adding security:", craft.crew.security ) 

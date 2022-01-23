@@ -53,7 +53,9 @@ if onClient() then -- only do icon stuff on the clientside
 			end
 		end
 
-		Entity().title = "${dir} Ancient Gate to ${sector}" % {dir = dirString, sector = specs.name}
+		local entity = Entity()
+
+		entity.title = "${dir} Ancient Gate to ${sector}" % {dir = dirString, sector = specs.name}
 		print("rglx-SimplyGateCompasses: ancient gate renamed in " .. thissectorspecs.name )
 
 		local iconPath = "data/textures/icons/pixel/rglx_simplygatecompass/ancient/gate_Unknown.png"
@@ -62,7 +64,9 @@ if onClient() then -- only do icon stuff on the clientside
 			iconPath = "data/textures/icons/pixel/rglx_simplygatecompass/ancient/gate_Direction" .. dirString .. ".png"
 		end
 
-		EntityIcon().icon = iconPath
+		if onClient() then
+			EntityIcon(entity.index).icon = iconPath
+		end
 		print("set an icon on an ancient gate")
 	end
 end

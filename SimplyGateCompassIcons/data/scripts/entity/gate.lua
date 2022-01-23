@@ -53,7 +53,9 @@
 			end
 		end
 
-		Entity().title = "${dir} Gate to ${sector}"%_t % {dir = dirString, sector = specs.name}
+		local entity = Entity()
+
+		entity.title = "${dir} Gate to ${sector}"%_t % {dir = dirString, sector = specs.name}
 		print("rglx-SimplyGateCompasses: gate renamed in " .. thissectorspecs.name )
 
 		local iconPath = "data/textures/icons/pixel/rglx_simplygatecompass/gate_Unknown.png"
@@ -61,8 +63,9 @@
 			print("rglx-SimplyGateCompasses: found a directional to set on a regular gate")
 			iconPath = "data/textures/icons/pixel/rglx_simplygatecompass/gate_Direction" .. dirString .. ".png"
 		end
-
-		EntityIcon().icon = iconPath
+		if onClient() then
+			EntityIcon(entity.index).icon = iconPath
+		end
 		print("set an icon on a gate")
 	end
 --end
