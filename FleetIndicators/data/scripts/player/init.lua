@@ -1,3 +1,4 @@
 if onServer() then
-	Player():addScriptOnce("ui/fleetindicators.lua")
+	Player():addScriptOnce("ui/rglx_fleetindicators_blockdamage.lua")
+	Player():addScriptOnce("ui/rglx_fleetindicators_craftstatus.lua")
 end

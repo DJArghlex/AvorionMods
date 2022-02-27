@@ -1,7 +1,7 @@
 -- namespace EnemyStrengthIndicators
 
--- overwrites stock function - allows the usage of the danger icon slot for player/alliance ships
--- someone at boxelware really needs to step off
+-- overwrites stock function - allows the usage of the danger icon slot for player/alliance ships specifically for the block damage part of this mod.
+-- to future maintainers & self: just copy the contents of the function and comment out lines 32 and 33
 
 function EnemyStrengthIndicators.updateShipIcons()
 
