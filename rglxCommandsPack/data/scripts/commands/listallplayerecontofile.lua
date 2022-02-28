@@ -54,7 +54,7 @@ function execute(sender, commandName, ...)
 		player.name = "Console"
 	end
 
-	print("ALERT! Attempting to index, list, and locate ALL player & alliance ships in the entire galaxy - this may take some time. If your players move their resources and credits between now and the time the server saves and shuts down, the information won't be accurate, so do NOT run this with players connected, and shut the server down when it's finished!")
+	print(" *** *** *** ALERT! *** *** *** Attempting to index ALL player & alliance resource/credit vaults in the entire galaxy - this may take some time. If your players move their resources and credits around or build/deconstruct ships between now and the time the server saves and shuts down, the information won't be accurate, so do NOT run this with players connected, and shut the server down when it's finished!")
 
 	print ("attempting to fetch a full list of all players who have connected to the galaxy... this can take a little while.")
 
