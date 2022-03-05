@@ -1,6 +1,6 @@
 
 -- namespace EnergySuppressor
-print("rglx-ESSImprovements: loaded onto an active suppressor!")
+print("rglx-ServerLib-MakeESSExplodeOnDepletion: loaded onto an active suppressor!")
 
 function EnergySuppressor.updateServer(timeStep)
 	self.data.time = self.data.time - timeStep
@@ -10,7 +10,7 @@ function EnergySuppressor.updateServer(timeStep)
 		getParentFaction():sendChatMessage("Energy Signature Suppressor"%_T, ChatMessageType.Normal, [[Your energy signature suppressor in sector \s(%1%:%2%) has burnt out!]]%_T, x, y)
 		getParentFaction():sendChatMessage("Energy Signature Suppressor"%_T, ChatMessageType.Warning, [[Your energy signature suppressor in sector \s(%1%:%2%) has burnt out!]]%_T, x, y)
 
-		--print("rglx-ESSImprovements: an energy signature suppressor burned out somewhere...")
+		--print("rglx-ServerLib-MakeESSExplodeOnDepletion: an energy signature suppressor burned out somewhere...")
 		local entity = Entity()
 		entity:clearValues() -- allow things to spawn in
 		Sector():destroy(entity) -- better method- silently removes the entity
