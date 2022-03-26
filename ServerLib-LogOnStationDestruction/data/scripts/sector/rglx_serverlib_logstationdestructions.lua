@@ -28,136 +28,146 @@ if onServer() then
 
 	function rglxServerLibLogStationDestruction.onBoardingSuccessful(index,oldFactionIndex,newFactionIndex)
 		local entity = Entity(index)
-		if entity.isStation then -- we only want to do our logic for stations that have been destroyed. anything else is pointless
 
-			local oldOwner = Faction(oldFactionIndex)
-			local newOwner = Faction(newFactionIndex)
-			local sector = Sector()
-			local sectorX, sectorY = sector:getCoordinates()
+		-- ignore non-stations
+		if not entity.isStation then return end
 
-			if ends_with(oldOwner.name," Pirates") then
-				-- pirate faction, do nothing
-			else
-				 -- non-pirate station that was stolen.
-				local server = Server()
+		-- schlorp up some variables
+		local oldOwner = Faction(oldFactionIndex)
+		local newOwner = Faction(newFactionIndex)
+		local sector = Sector()
+		local sectorX, sectorY = sector:getCoordinates()
 
-				outgoingMessage = "An NPC station was boarded in ("..sectorX..":"..sectorY..") by " .. formatFactionName(newOwner.name) .. "!"
+		-- ignore non-NPC factions
+		if not oldOwner.isAIFaction then return end
 
-				print("rglx_ServerLib_LogStationDestruction: ".. outgoingMessage)
+		-- ignore pirate NPCs specifically
+		if ends_with(oldOwner.name," Pirates") then return end
 
-				-- send notification to all online admins
+		-- ok! it's a non-player/alliance, non-pirate station that was boarded.
+		local server = Server()
 
-				local onlinePlayers = { server:getOnlinePlayers() } -- table wrapped to make it nice and iteratable
+		outgoingMessage = "An NPC station was boarded in ("..sectorX..":"..sectorY..") by " .. formatFactionName(newOwner.name) .. "!"
 
-				for key, playerObject in pairs(onlinePlayers) do
-					if server:hasAdminPrivileges(playerObject) then
-						playerObject:sendChatMessage("Station Destruction Alerts",2,outgoingMessage)
-					end
-				end
+		print("rglx_ServerLib_LogStationDestruction: ".. outgoingMessage)
 
-				rglxServerLibLogStationDestruction.writeTextToFile(outgoingMessage .. "\n\n")
+		-- send notification to all online admins
 
+		local onlinePlayers = { server:getOnlinePlayers() } -- table wrapped to make it nice and iteratable
+
+		for key, playerObject in pairs(onlinePlayers) do
+			if server:hasAdminPrivileges(playerObject) then
+				playerObject:sendChatMessage("Station Destruction Alerts",2,outgoingMessage)
 			end
 		end
+
+		rglxServerLibLogStationDestruction.writeTextToFile(outgoingMessage .. "\n\n")
 	end
 
 	function rglxServerLibLogStationDestruction.onDestroyed(index,lastDamageInflictor)
 		local entity = Entity(index)
-		if entity.isStation then -- we only want to do our logic for stations that have been destroyed. anything else is pointless
+
+		-- ignore non-stations
+		if not entity.isStation then return end
 
 
-			local owner = Faction(entity.factionIndex)
-			local sector = Sector()
-			local sectorX, sectorY = sector:getCoordinates()
+		local owner = Faction(entity.factionIndex)
+		local sector = Sector()
+		local sectorX, sectorY = sector:getCoordinates()
 
-			if ends_with(owner.name," Pirates") then -- pirate faction- do nothing.
-				--print("rglx_ServerLib_LogStationDestruction: a station owned by ".. owner.name .." was destroyed in ("..sectorX..":"..sectorY.."), but it was a pirate station. ignoring.")
-			else -- non-pirate station that has been destroyed. let's get some more information
-				local server = Server()
+		-- ignore non-NPC factions
+		if not owner.isAIFaction then return end
 
-				print("rglx_ServerLib_LogStationDestruction: a station owned by ".. formatFactionName(owner.name) .." was destroyed in ("..sectorX..":"..sectorY..")!")
+		-- ignore pirate stations
+		if ends_with(owner.name," Pirates") then return end
 
+		local server = Server()
 
-				-- send notification to all online admins
-
-				local onlinePlayers = { server:getOnlinePlayers() } -- table wrapped to make it nice and iteratable
-
-				for key, playerObject in pairs(onlinePlayers) do
-					if server:hasAdminPrivileges(playerObject) then
-						playerObject:sendChatMessage("Station Destruction Alerts",2,"An NPC station was destroyed in ("..sectorX..":"..sectorY..")!")
-					end
-				end
+		print("rglx_ServerLib_LogStationDestruction: a station owned by ".. formatFactionName(owner.name) .." was destroyed in ("..sectorX..":"..sectorY..")!")
 
 
-				-- index contents of sector- this may be a bit laggy
+		-- send notification to all online admins
 
-				local craftIndexForSector = {}
+		local onlinePlayers = { server:getOnlinePlayers() } -- table wrapped to make it nice and iteratable
 
-				local fullListOfAllStations = { sector:getEntitiesByType(EntityType.Station) }
-				local fullListOfAllShips = { sector:getEntitiesByType(EntityType.Ship) }
-
-				-- basically all we're doing here is indexing the contents of this sector
-				--   	- key for the array is the faction ID
-				--  	- value is the number of crafts
-
-				for key, entityObject in pairs(fullListOfAllStations) do
-					--print("station for" ..entityObject.factionIndex)
-					if craftIndexForSector[entityObject.factionIndex] ~= nil then
-						-- faction present in index- increment craft counter up by one.
-						craftIndexForSector[entityObject.factionIndex] = craftIndexForSector[entityObject.factionIndex] + 1
-					else
-						-- faction was not present in index
-						craftIndexForSector[entityObject.factionIndex] = 1
-					end
-				end
-
-				for key, entityObject in pairs(fullListOfAllShips) do
-					--print("ship for",entityObject.factionIndex)
-					if craftIndexForSector[entityObject.factionIndex] ~= nil then
-						-- faction present in index- increment craft counter up by one.
-						craftIndexForSector[entityObject.factionIndex] = craftIndexForSector[entityObject.factionIndex] + 1
-					else
-						-- faction was not present in index
-						craftIndexForSector[entityObject.factionIndex] = 1
-					end
-				end
-
-				--print("index complete- sending")
-
-				-- prep a string to log to file with
-
-				local loggedMessage = "An NPC station was destroyed in ("..sectorX..":"..sectorY..")!\n"
-
-				local lastDamagingFaction = {}
-				lastDamagingFaction.index = "[unknown]"
-				lastDamagingFaction.name = "[unknown]"
-
-				local lastDamagingEntity = Entity(lastDamageInflictor)
-				if lastDamagingEntity ~= nil then
-					lastDamagingFaction = Faction(lastDamagingEntity.factionIndex)
-				end
-
-				loggedMessage = loggedMessage .. "\tLast known damage inflictor: " .. formatFactionName(lastDamagingFaction.name) .. " (#".. lastDamagingFaction.index .. ")\n"
-
-				loggedMessage = loggedMessage .. "\tContents of ("..sectorX..":"..sectorY..") at time of station destruction:\n"
-
-				for factionId, craftCount in pairs(craftIndexForSector) do
-					loggedMessage = loggedMessage .. "\t\t" .. formatFactionName(Faction(factionId).name) .. " (#"..factionId..") - " .. craftCount .. " crafts\n"
-					--loggedMessage = loggedMessage .. "\t\tfaction ID #"..factionId.." - " .. craftCount .. " crafts\n"
-				end
-
-				-- add an extra newline
-				loggedMessage = loggedMessage .. "\n"
-
-				-- remove ridiculous translation strings
-				loggedMessage = loggedMessage:gsub(self.stringToRemove,"")
-
-				-- and finally, send it.
-				--print(loggedMessage)
-				rglxServerLibLogStationDestruction.writeTextToFile(loggedMessage)
-				--print("logged out to file and console.")
+		for key, playerObject in pairs(onlinePlayers) do
+			if server:hasAdminPrivileges(playerObject) then
+				playerObject:sendChatMessage("Station Destruction Alerts",2,"An NPC station was destroyed in ("..sectorX..":"..sectorY..")!")
 			end
 		end
+
+
+		-- index contents of sector- this may be a bit laggy
+
+		local craftIndexForSector = {}
+
+		local fullListOfAllStations = { sector:getEntitiesByType(EntityType.Station) }
+		local fullListOfAllShips = { sector:getEntitiesByType(EntityType.Ship) }
+
+		-- basically all we're doing here is indexing the contents of this sector
+		--   	- key for the array is the faction ID
+		--  	- value is the number of crafts
+
+		for key, entityObject in pairs(fullListOfAllStations) do
+			--print("station for" ..entityObject.factionIndex)
+			if craftIndexForSector[entityObject.factionIndex] ~= nil then
+				-- faction present in index- increment craft counter up by one.
+				craftIndexForSector[entityObject.factionIndex] = craftIndexForSector[entityObject.factionIndex] + 1
+			else
+				-- faction was not present in index
+				craftIndexForSector[entityObject.factionIndex] = 1
+			end
+		end
+
+		for key, entityObject in pairs(fullListOfAllShips) do
+			--print("ship for",entityObject.factionIndex)
+			if craftIndexForSector[entityObject.factionIndex] ~= nil then
+				-- faction present in index- increment craft counter up by one.
+				craftIndexForSector[entityObject.factionIndex] = craftIndexForSector[entityObject.factionIndex] + 1
+			else
+				-- faction was not present in index
+				craftIndexForSector[entityObject.factionIndex] = 1
+			end
+		end
+
+		--print("index complete- sending")
+
+		-- prep a string to log to file with
+
+		local loggedMessage = "An NPC station was destroyed in ("..sectorX..":"..sectorY..")!\n"
+
+		local lastDamagingFaction = {}
+		lastDamagingFaction.index = "[unknown]"
+		lastDamagingFaction.name = "[unknown]"
+
+		local lastDamagingEntity = Entity(lastDamageInflictor)
+		if lastDamagingEntity ~= nil then
+			lastDamagingFaction = Faction(lastDamagingEntity.factionIndex)
+		end
+
+		loggedMessage = loggedMessage .. "\tStation class: " .. formatFactionName(entity.title)
+		loggedMessage = loggedMessage .. "\tStation name: " .. formatFactionName(entity.name)
+		loggedMessage = loggedMessage .. "\tStation owner: " .. formatFactionName(Faction(entity.factionIndex).name)
+
+		loggedMessage = loggedMessage .. "\tLast known damage inflictor: " .. formatFactionName(lastDamagingFaction.name) .. " (#".. lastDamagingFaction.index .. ")\n"
+
+		loggedMessage = loggedMessage .. "\tContents of ("..sectorX..":"..sectorY..") at time of station destruction:\n"
+
+		for factionId, craftCount in pairs(craftIndexForSector) do
+			loggedMessage = loggedMessage .. "\t\t" .. formatFactionName(Faction(factionId).name) .. " (#"..factionId..") - " .. craftCount .. " crafts\n"
+			--loggedMessage = loggedMessage .. "\t\tfaction ID #"..factionId.." - " .. craftCount .. " crafts\n"
+		end
+
+		-- add an extra newline
+		loggedMessage = loggedMessage .. "\n"
+
+		-- remove ridiculous translation strings
+		loggedMessage = loggedMessage:gsub(self.stringToRemove,"")
+
+		-- and finally, send it.
+		--print(loggedMessage)
+		rglxServerLibLogStationDestruction.writeTextToFile(loggedMessage)
+		--print("logged out to file and console.")
 	end
 
 	function rglxServerLibLogStationDestruction.writeTextToFile(message)
