@@ -52,21 +52,44 @@ function execute(sender, commandName, ...)
 
 	-- cast to proper type for the faction so we can get at the right methods
 	if targetFaction.isAlliance then
-		targetFaction = Alliance(targetFaction.id)
-		stringToReturn = "Ships and locations of Alliance '" .. targetFaction.name .. "' (#".. targetFaction.id .."):\n"
+		targetFaction = Alliance(targetFaction.index)
+		stringToReturn = "Ships and locations of Alliance '" .. targetFaction.name .. "' (#".. targetFaction.index .."):\n"
 	elseif targetFaction.isPlayer then
-		targetFaction = Player(targetFaction.id)
-		stringToReturn = "Ships and locations of Player '" .. targetFaction.name .. "' (#".. targetFaction.id .."):\n"
+		targetFaction = Player(targetFaction.index)
+		stringToReturn = "Ships and locations of Player '" .. targetFaction.name .. "' (#".. targetFaction.index .."):\n"
 	end
 
 	local shipNames = { targetFaction:getShipNames() }
+	local shipsByLocation = {}
 
 	for _, shipName in ipairs(shipNames) do
+		-- for each ship we've found under our target faction, we need to retrieve its location (or if it doesn't exist, show a 'location unknown' text i.e. for a ship that's on a mission)
 		local shipX, shipY = targetFaction:getShipPosition(shipName)
-		if toNumber(shipX) == nil or tonumber(shipY) == nil then
-			stringToReturn = stringToReturn .. shipName .. " [location unknown]"
+		local shipLocation = nil
+		if tonumber(shipX) == nil or tonumber(shipY) == nil then
+			shipLocation = "[location unknown]"
 		else
-			stringToReturn = stringToReturn .. " (".. shipX ..":".. shipY ..")"
+			shipLocation = "(".. shipX ..":".. shipY ..")"
+		end
+
+		-- now, let's add it to the sub-table (or create it if it doesn't exist)
+		if shipsByLocation[shipLocation] == nil then
+			shipsByLocation[shipLocation] = {shipName}
+		else
+			table.insert(shipsByLocation[shipLocation],shipName)
+		end
+	end
+
+	for location, shipList in pairs(shipsByLocation) do
+		-- now, we can iterate over each of our locations that has a ship, and write it all out.
+		print(location)
+		if #shipList > 10 then
+			stringToReturn = stringToReturn .. location .. "\t" .. "[" .. #shipList .. " crafts]" .. "\t" .. "list omitted- too long"
+		else
+			stringToReturn = stringToReturn .. location .. "\t" .. "[" .. #shipList .. " crafts]" .. "\t"
+			for _, shipName in ipairs(shipList) do
+				stringToReturn = stringToReturn .. shipName .. "  "
+			end
 		end
 		stringToReturn = stringToReturn .. "\n"
 	end
