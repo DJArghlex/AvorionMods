@@ -1,5 +1,7 @@
 -- rglx's xsotan invasion remover - prevents the invasion from starting, and reverts the wormhole guardian's spawn requirements back to a simple half-hour timer
 
+-- for game versions UP TO 2.1.0, and no further! the way the invasion works in 2.2 onwards currently makes this mod meaningless, as we can now, in vanilla server.ini configurations, disable the invasion completely, without impacting XWG's spawn cycle.
+
 do -- required because of the particular oddity in the way avorion loads this script
 
 print("rglx-InvasionRemover: loading...")

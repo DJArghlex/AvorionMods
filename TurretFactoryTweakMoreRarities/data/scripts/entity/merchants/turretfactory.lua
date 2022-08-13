@@ -1,5 +1,6 @@
 
 -- overwrite existing function - adds the last two rarities to turret factories. might conflict with some stuff.
+-- this suppresses the vanilla 2.2 exotic turrets' generation, but since it's adding exotic turrets the same way, just for all the weapon types, not a 10% chance at random for each one, it's functionally the same
 function TurretFactory.refreshBuildTurretsUI()
     local buyer = Galaxy():getPlayerCraftFaction()
     inventoryBlueprintSelection:fill(buyer.index, InventoryItemType.TurretTemplate)
@@ -11,6 +12,8 @@ function TurretFactory.refreshBuildTurretsUI()
         table.insert(rarities, Rarity(RarityType.Legendary)) -- added
     end
 
+    local random = Random(Seed(data.seed or ""))
+
     local first = nil
     predefinedBlueprintSelection:clear()
     for _, weaponType in pairs(TurretFactory.getPossibleWeaponTypes()) do
@@ -21,7 +24,17 @@ function TurretFactory.refreshBuildTurretsUI()
 
             if not first then first = item end
         end
+
+        -- vanilla code block
+        -- commented out because adjustments above handle addition of exotic turrets to the blueprint selections.
+        --if random:test(0.2) then
+        --    local item = InventorySelectionItem()
+        --    item.item = TurretFactory.makeTurretBase(weaponType, Rarity(RarityType.Exotic), TurretFactory.getMaterial())
+        --    predefinedBlueprintSelection:add(item)
+        --end
     end
+
+    TurretFactory.refreshRerollButtonTooltip()
 
     selectedBlueprintSelection:clear()
     selectedBlueprintSelection:addEmpty()
@@ -29,13 +42,14 @@ function TurretFactory.refreshBuildTurretsUI()
     TurretFactory.placeBlueprint(first, ConfigurationMode.FactoryTurret)
 end
 
--- overwrite existing function -- removes rarity check on buildNewTurret
+-- overwrite existing function
+-- adjusts rarity check on buildNewTurret on the fifth line of the function.
 function TurretFactory.buildNewTurret(weaponType, rarity, clientIngredients)
     if not CheckFactionInteraction(callingPlayer, TurretFactory.interactionThreshold) then return end
 
     if anynils(weaponType, rarity, clientIngredients) then return end
     if not is_type(rarity, "Rarity") then return end
-    --if not (rarity.value >= 0 and rarity.value <= 3) then return end -- a single line changed for this >:(
+    if not (rarity.value >= RarityType.Common and rarity.value <= RarityType.Legendary) then return end -- adjusted to allow legendary turrets now. vanilla allowed exotics already because as of 2.2 turret factories had a 10% chance for each weapontype to also stock an exotic blueprint.
 
     local buyer, ship, player = getInteractingFaction(callingPlayer, AlliancePrivilege.SpendResources)
     if not buyer then return end
@@ -43,7 +57,7 @@ function TurretFactory.buildNewTurret(weaponType, rarity, clientIngredients)
     if rarity.value >= RarityType.Exceptional then
         local faction = Faction()
         if faction and buyer:getRelations(faction.index) < 80000 then
-            TurretFactory.sendError(player, "You need at least 'Excellent' relations to build 'Exceptional' turrets."%_t)
+            TurretFactory.sendError(player, "You need at least 'Excellent' relations to build 'Exceptional' or better turrets."%_t)
             return
         end
     end
@@ -52,7 +66,7 @@ function TurretFactory.buildNewTurret(weaponType, rarity, clientIngredients)
     local station = Entity()
 
     -- can the weapon be built in this sector?
-    local weaponProbabilities = Balancing_GetWeaponProbability(TurretFactory.getCoordinates())
+    local weaponProbabilities = Balancing_GetWeaponProbability(data.x, data.y)
     if not weaponProbabilities[weaponType] then
         TurretFactory.sendError(player, "This turret cannot be built here."%_t)
         return
