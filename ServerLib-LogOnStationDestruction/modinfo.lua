@@ -14,7 +14,7 @@ meta =
     dependencies = {
         {id = "Avorion", exact = "*.*"}
     },
-    serverSideOnly = false,
+    serverSideOnly = true,
     clientSideOnly = false,
     saveGameAltering = false,
     contact = "Steam Workshop comments section",

@@ -29,6 +29,9 @@ if onServer() then
 	function rglxServerLibLogStationDestruction.onBoardingSuccessful(index,oldFactionIndex,newFactionIndex)
 		local entity = Entity(index)
 
+		-- ignore entities that don't exist
+		if not entity then eprint("rglx_ServerLib_LogStationDestruction: onBoardingSuccessful callback fired for nil entity!") return end
+		
 		-- ignore non-stations
 		if not entity.isStation then return end
 
@@ -66,6 +69,9 @@ if onServer() then
 
 	function rglxServerLibLogStationDestruction.onDestroyed(index,lastDamageInflictor)
 		local entity = Entity(index)
+
+		-- ignore entities that don't exist
+		if not entity then eprint("rglx_ServerLib_LogStationDestruction: onDestroyed callback fired for nil entity!") return end
 
 		-- ignore non-stations
 		if not entity.isStation then return end
