@@ -67,6 +67,6 @@ if onClient() then -- only do icon stuff on the clientside
 		if onClient() then
 			EntityIcon(entity.index).icon = iconPath
 		end
-		print("set an icon on an ancient gate")
+		print("rglx-SimplyGateCompasses: set an icon on an ancient gate")
 	end
 end

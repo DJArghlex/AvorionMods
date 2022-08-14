@@ -66,6 +66,6 @@
 		if onClient() then
 			EntityIcon(entity.index).icon = iconPath
 		end
-		print("set an icon on a gate")
+		print("rglx-SimplyGateCompasses: set an icon on a gate")
 	end
 --end
