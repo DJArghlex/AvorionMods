@@ -3,13 +3,16 @@
 
 -- namespace Gate
 
---if onClient() then -- only do icon stuff on the clientside
+if onClient() then -- only do icon stuff on the clientside
+
+	package.path = package.path .. ";data/scripts/?.lua"
+	local SectorSpecifics = include ("sectorspecifics")
 
 	vanillaGateInitialize = Gate.initialize
 	function Gate.initialize(...)
 		vanillaGateInitialize(...)
 
-		print("rglx-SimplyGateCompasses: modifying a regular gate")
+		--print("rglx-SimplyGateCompasses: modifying a regular gate")
 
 		local dirs = { -- from vanilla gate.lua
 			{name = "E /*direction*/"%_t,    angle = math.pi * 2 * 0 / 16},
@@ -56,16 +59,17 @@
 		local entity = Entity()
 
 		entity.title = "${dir} Gate to ${sector}"%_t % {dir = dirString, sector = specs.name}
-		print("rglx-SimplyGateCompasses: gate renamed in " .. thissectorspecs.name )
+		--print("rglx-SimplyGateCompasses: gate renamed in " .. thissectorspecs.name )
 
 		local iconPath = "data/textures/icons/pixel/rglx_simplygatecompass/gate_Unknown.png"
 		if dirString ~= "" then
-			print("rglx-SimplyGateCompasses: found a directional to set on a regular gate")
+			--print("rglx-SimplyGateCompasses: found a directional to set on a regular gate")
 			iconPath = "data/textures/icons/pixel/rglx_simplygatecompass/gate_Direction" .. dirString .. ".png"
 		end
 		if onClient() then
 			EntityIcon(entity.index).icon = iconPath
 		end
-		print("rglx-SimplyGateCompasses: set an icon on a gate")
+		--print("rglx-SimplyGateCompasses: set an icon on a gate")
+		print("rglx-SimplyGateCompasses: successfully modified an ancient gate & its icon in " .. thissectorspecs.name)
 	end
---end
+end

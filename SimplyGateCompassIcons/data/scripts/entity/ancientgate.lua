@@ -5,11 +5,14 @@
 
 if onClient() then -- only do icon stuff on the clientside
 
+	package.path = package.path .. ";data/scripts/?.lua"
+	local SectorSpecifics = include ("sectorspecifics")
+
 	vanillaAncientGateInitialize = AncientGate.initialize
 	function AncientGate.initialize(...)
 		vanillaAncientGateInitialize(...)
 
-		print("rglx-SimplyGateCompasses: modifying a regular gate")
+		--print("rglx-SimplyGateCompasses: modifying anm ancient gate")
 
 		local dirs = { -- from vanilla gate.lua
 			{name = "E /*direction*/"%_t,    angle = math.pi * 2 * 0 / 16},
@@ -55,18 +58,19 @@ if onClient() then -- only do icon stuff on the clientside
 
 		local entity = Entity()
 
-		entity.title = "${dir} Ancient Gate to ${sector}" % {dir = dirString, sector = specs.name}
-		print("rglx-SimplyGateCompasses: ancient gate renamed in " .. thissectorspecs.name )
+		entity.title = "${dir} Ancient Gate to ${sector}"%_t % {dir = dirString, sector = specs.name}
+		--print("rglx-SimplyGateCompasses: ancient gate renamed in " .. thissectorspecs.name )
 
 		local iconPath = "data/textures/icons/pixel/rglx_simplygatecompass/ancient/gate_Unknown.png"
 		if dirString ~= "" then
-			print("rglx-SimplyGateCompasses: found a directional to set on an ancient gate")
+			--print("rglx-SimplyGateCompasses: found a directional to set on an ancient gate")
 			iconPath = "data/textures/icons/pixel/rglx_simplygatecompass/ancient/gate_Direction" .. dirString .. ".png"
 		end
 
 		if onClient() then
 			EntityIcon(entity.index).icon = iconPath
 		end
-		print("rglx-SimplyGateCompasses: set an icon on an ancient gate")
+		--print("rglx-SimplyGateCompasses: set an icon on an ancient gate")
+		print("rglx-SimplyGateCompasses: successfully modified an ancient gate & its icon in " .. thissectorspecs.name)
 	end
 end
