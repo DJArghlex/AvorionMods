@@ -14,15 +14,18 @@ function update(timeStep)
 	local xsotanSwarmSpawnTimer = server:getValue("xsotan_swarm_time")
 
 	if xsotanSwarmSpawnTimer then
-		print("rglx-InvasionRemover: an invasion has been pre-empted.")
-
 		-- someone killed XWG and re-started the timer. let's prevent the invasion from occuring
 
 		server:setValue("xsotan_swarm_duration", nil) -- controls length of invasion- just set to nil so nothing thinks its ongoing
 		server:setValue("xsotan_swarm_active", false) -- used by a few things to determine if invasion is ongoing or if it 
 		server:setValue("xsotan_swarm_time", nil) -- controls invasion respawn delay
-		server:setValue("guardian_respawn_time", 30 * 60) -- controls XWG respawn delay (this is the stock value in the game)
 		server:setValue("xsotan_swarm_success", false) -- used by a few things to determine the failure or success of invasion (we want to pretend invasion failed)
+
+		-- as of 2.2.0 and onwards this is no longer necessary due to the changes made to invasion and XWG.
+		-- if converting upwards from an older galaxy where the invasion was in progress or repelled already and hasn't spawned a guardian, this will not be set properly.
+		server:setValue("guardian_respawn_time", 30 * 60) -- controls XWG respawn delay (this is the stock value in the game)
+		
+		print("rglx-InvasionRemover: an invasion has been pre-empted.")
 	end
 
 	-- now, after we've done our work fooling with timers and stuff we can pass the vanilla logic and this won't break anything
