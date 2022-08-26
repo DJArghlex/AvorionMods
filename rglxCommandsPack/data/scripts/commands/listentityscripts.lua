@@ -26,10 +26,6 @@ function execute(sender, commandName, ...)
 		returnValue = commandName .. ": This cannot be run from console."
 		print( player.name .. " ran " .. returnValue )
 		return 1, returnValue, returnValue
-	elseif not server:hasAdminPrivileges(player) then
-		returnValue = commandName .. ": You don't have permission."
-		print( player.name .. " ran " .. returnValue )
-		return 1, returnValue, returnValue
 	end
 
 	if not player.craft then

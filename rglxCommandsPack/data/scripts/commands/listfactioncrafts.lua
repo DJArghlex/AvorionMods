@@ -24,6 +24,10 @@ function execute(sender, commandName, ...)
 	if player == nil then
 		player = {}
 		player.name = "Console"
+	elseif not server:hasAdminPrivileges(player) then
+		returnValue = commandName .. ": You don't have permission."
+		print( player.name .. " ran " .. returnValue )
+		return 1, returnValue, returnValue
 	end
 
 	-- non numbers aren't faction IDs
@@ -84,9 +88,9 @@ function execute(sender, commandName, ...)
 		-- now, we can iterate over each of our locations that has a ship, and write it all out.
 		print(location)
 		if #shipList > 10 then
-			stringToReturn = stringToReturn .. location .. "\t" .. "[" .. #shipList .. " crafts]" .. "\t" .. "list omitted- too long"
+			stringToReturn = stringToReturn .. location .. "    " .. "[" .. #shipList .. " crafts]" .. "    " .. "list omitted- too long"
 		else
-			stringToReturn = stringToReturn .. location .. "\t" .. "[" .. #shipList .. " crafts]" .. "\t"
+			stringToReturn = stringToReturn .. location .. "    " .. "[" .. #shipList .. " crafts]" .. "    "
 			for _, shipName in ipairs(shipList) do
 				stringToReturn = stringToReturn .. shipName .. "  "
 			end
@@ -94,7 +98,7 @@ function execute(sender, commandName, ...)
 		stringToReturn = stringToReturn .. "\n"
 	end
 
-	returnValue = commandName .. ": Indexed faction ID #".. playerId .."'s crafts."
+	returnValue = commandName .. ": list of faction ID #".. playerId .."'s crafts:"
 
 	returnValue = returnValue .. "\n" .. stringToReturn
 
