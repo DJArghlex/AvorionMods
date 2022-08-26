@@ -31,6 +31,15 @@ function regenSector.initialize()
 			else
 				if Faction(entity.factionIndex).isAIFaction then
 					Sector():deleteEntity(entity) -- items owned by NPCs (stations, defenders, et cetera)
+				else
+					-- player/alliance "owned" gates need to be deleted and regenerated
+					-- possible incompatibility: the gate founder mod or other things that manually place gates that use the vanilla script
+					for scriptId, scriptName in pairs(entity:getScripts()) do
+						if scriptName == "data/scripts/entity/gate.lua" then
+							Sector():deleteEntity(entity) -- player/alliance-"owned" gates need to be removed because the sector will regenerate them
+							print("rglx_CmdsPack_regensector_sector: WARNING! ("..x..":"..y..") had a player-owned gate removed! Make sure a new one was placed!")
+						end
+					end
 				end
 			end
 		end
