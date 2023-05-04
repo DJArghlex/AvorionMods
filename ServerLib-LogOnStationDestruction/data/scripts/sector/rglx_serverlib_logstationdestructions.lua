@@ -157,9 +157,9 @@ if onServer() then
 			end
 		end
 
-		loggedMessage = loggedMessage .. "\tStation class: " .. formatFactionName(entity.title)
-		loggedMessage = loggedMessage .. "\tStation name: " .. formatFactionName(entity.name)
-		loggedMessage = loggedMessage .. "\tStation owner: " .. formatFactionName(Faction(entity.factionIndex).name)
+		loggedMessage = loggedMessage .. "\tStation class: " .. formatFactionName(entity.title) .. "\n"
+		loggedMessage = loggedMessage .. "\tStation name: " .. formatFactionName(entity.name) .. "\n"
+		loggedMessage = loggedMessage .. "\tStation owner: " .. formatFactionName(Faction(entity.factionIndex).name) .. "\n"
 
 		loggedMessage = loggedMessage .. "\tLast known damage inflictor: " .. formatFactionName(lastDamagingFaction.name) .. " (#".. lastDamagingFaction.index .. ")\n"
 
