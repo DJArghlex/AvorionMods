@@ -17,6 +17,11 @@ if onServer() then
 			-- check if string ends with another string... performance-wise i don't know how friendly this will be but we'll see.
 			local b = s:sub(-string.len(suffix)) == suffix
 
+			-- exempt the one station in the Black Market DLC's Family questline
+			if s == "Jackson" then
+				b == true
+			end
+			
 			if b ~= true then
 				-- okay, so it's not a pirate-owned station. let's make it invincible then.
 

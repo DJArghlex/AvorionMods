@@ -15,7 +15,12 @@ if onServer() then
 			local s = entityOwner.name
 			local suffix = " Pirates" -- don't know how well this will work for localization. may grant immunity on pirate shipyards for non-english servers
 			-- check if string ends with another string... performance-wise i don't know how friendly this will be but we'll see.
-			local b = s:sub(-string.len(suffix)) == suffix
+			b = s:sub(-string.len(suffix)) == suffix
+
+			-- exempt the one station in the Black Market DLC's Family questline
+			if s == "Jackson" then
+				b == true
+			end
 
 			if b ~= true then
 				-- okay, so it's not a pirate-owned station. let's make it invincible then.

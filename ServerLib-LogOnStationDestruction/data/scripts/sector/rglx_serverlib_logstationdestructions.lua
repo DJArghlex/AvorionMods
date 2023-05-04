@@ -47,6 +47,9 @@ if onServer() then
 		-- ignore pirate NPCs specifically
 		if ends_with(oldOwner.name," Pirates") then return end
 
+		-- ignore Black Market DLC's Family questline station that gets blown up
+		if oldOwner.name == "Jackson" then return end
+
 		-- ok! it's a non-player/alliance, non-pirate station that was boarded.
 		local server = Server()
 
@@ -87,20 +90,13 @@ if onServer() then
 		-- ignore pirate stations
 		if ends_with(owner.name," Pirates") then return end
 
+		-- ignore Black Market DLC's Family questline station that gets blown up
+		if owner.name == "Jackson" then return end
+		
 		local server = Server()
 
 		print("rglx_ServerLib_LogStationDestruction: a station owned by ".. formatFactionName(owner.name) .." was destroyed in ("..sectorX..":"..sectorY..")!")
 
-
-		-- send notification to all online admins
-
-		local onlinePlayers = { server:getOnlinePlayers() } -- table wrapped to make it nice and iteratable
-
-		for key, playerObject in pairs(onlinePlayers) do
-			if server:hasAdminPrivileges(playerObject) then
-				playerObject:sendChatMessage("Station Destruction Alerts",2,"An NPC station was destroyed in ("..sectorX..":"..sectorY..")!")
-			end
-		end
 
 
 		-- index contents of sector- this may be a bit laggy
@@ -151,6 +147,16 @@ if onServer() then
 			lastDamagingFaction = Faction(lastDamagingEntity.factionIndex)
 		end
 
+		-- send notification to all online admins
+
+		local onlinePlayers = { server:getOnlinePlayers() } -- table wrapped to make it nice and iteratable
+
+		for key, playerObject in pairs(onlinePlayers) do
+			if server:hasAdminPrivileges(playerObject) then
+				playerObject:sendChatMessage("Station Destruction Alerts",2,"An NPC station was destroyed in ("..sectorX..":"..sectorY..") by "..formatFactionName(lastDamagingFaction.name).."!")
+			end
+		end
+
 		loggedMessage = loggedMessage .. "\tStation class: " .. formatFactionName(entity.title)
 		loggedMessage = loggedMessage .. "\tStation name: " .. formatFactionName(entity.name)
 		loggedMessage = loggedMessage .. "\tStation owner: " .. formatFactionName(Faction(entity.factionIndex).name)
@@ -187,7 +193,7 @@ if onServer() then
 			print("rglx_ServerLib_LogStationDestruction: ERROR! could not open log file!")
 		end
 	end
-	print("rglx_ServerLib_LogStationDestruction: loaded into sector scripts.")
+	--print("rglx_ServerLib_LogStationDestruction: loaded into sector scripts.")
 else
 	print("rglx_ServerLib_LogStationDestruction: dont load this on your client- its for servers only.")
 end
