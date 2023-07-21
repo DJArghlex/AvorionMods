@@ -51,7 +51,7 @@ meta =
     serverSideOnly = false,
 
     -- Set to true if the mod only has to run on the client, such as UI mods
-    clientSideOnly = false,
+    clientSideOnly = true,
 
     -- Set to true if the mod changes the savegame in a potentially breaking way, as in it adds scripts or mechanics that get saved into database and no longer work once the mod gets disabled
     -- logically, if a mod is client-side only, it can't alter savegames, but Avorion doesn't check for that at the moment
