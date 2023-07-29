@@ -1,4 +1,3 @@
-
 -- rglx's crafticon loader v0.0.1
 print("rglx-CraftIcons-Homeworld: loading craft icons into client...")
 

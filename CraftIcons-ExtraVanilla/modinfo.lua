@@ -8,16 +8,16 @@ meta =
 
     -- Name of your mod; You may want this to be unique, but it's not absolutely necessary.
     -- This is an additional helper attribute for you to easily identify your mod in the Mods() list
-    name = "CraftIconsExtraVanilla",
+    name = "CraftIcons-ExtraVanilla",
 
     -- Title of your mod that will be displayed to players
-    title = "Extra Vanilla Craft Icons Pack",
+    title = "Extra Vanilla Craft Icons Tweak",
 
     -- Type of your mod, either "mod" or "factionpack"
     type = "mod",
 
     -- Description of your mod that will be displayed to players
-    description = "adds some extra craft icons for use in classifying ships. includes icons missing from the regular list such as: 'salvaging' icon, the 'vortex' icon travel hubs use, among others.",
+    description = "adds some extra craft icons for use in classifying ships into the craft icons menu. includes icons missing from the regular list such as: 'salvaging' icon, the 'vortex' icon travel hubs use, among others.",
 
     -- Insert all authors into this list
     authors = {"rglx"},
@@ -55,7 +55,7 @@ meta =
 
     -- Set to true if the mod changes the savegame in a potentially breaking way, as in it adds scripts or mechanics that get saved into database and no longer work once the mod gets disabled
     -- logically, if a mod is client-side only, it can't alter savegames, but Avorion doesn't check for that at the moment
-    saveGameAltering = true,
+    saveGameAltering = false,
 
     -- Contact info for other users to reach you in case they have questions
     contact = "Steam Workshop page",

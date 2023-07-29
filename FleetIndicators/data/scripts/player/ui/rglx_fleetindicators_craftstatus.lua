@@ -44,11 +44,11 @@ self.ordersToProblemsExactMatch = {
 	{ "Refining Ores - Waiting For Processing", 	 "data/textures/icons/pixel/sleep.png", 	 self.colorNonBlockingIssue },
 }
 self.ordersToProblemsStartsWith = {
-	{ "Refining Ores - ", 	 "data/textures/icons/pixel/mission-white.png", 	 self.colorBlockingIssue },
-	{ "Salvaging - ", 	 "data/textures/icons/pixel/mission-white.png", 	 self.colorBlockingIssue },
-	{ "Mining - ", 	 "data/textures/icons/pixel/mission-white.png", 	 self.colorBlockingIssue },
-	{ "Boarding - ", 	 "data/textures/icons/pixel/mission-white.png", 	 self.colorBlockingIssue },
-	{ "Repairing - ", 	 "data/textures/icons/pixel/mission-white.png", 	 self.colorBlockingIssue },
+	{ "Refining Ores - ", 	 "data/textures/icons/pixel/exclamation-mark.png", 	 self.colorBlockingIssue },
+	{ "Salvaging - ", 	 "data/textures/icons/pixel/exclamation-mark.png", 	 self.colorBlockingIssue },
+	{ "Mining - ", 	 "data/textures/icons/pixel/exclamation-mark.png", 	 self.colorBlockingIssue },
+	{ "Boarding - ", 	 "data/textures/icons/pixel/exclamation-mark.png", 	 self.colorBlockingIssue },
+	{ "Repairing - ", 	 "data/textures/icons/pixel/exclamation-mark.png", 	 self.colorBlockingIssue },
 }
 
 

@@ -8,7 +8,7 @@ meta =
 
     -- Name of your mod; You may want this to be unique, but it's not absolutely necessary.
     -- This is an additional helper attribute for you to easily identify your mod in the Mods() list
-    name = "CraftIconsHomeworld",
+    name = "CraftIcons-Homeworld",
 
     -- Title of your mod that will be displayed to players
     title = "Homeworld-esque Craft Icons Pack",
