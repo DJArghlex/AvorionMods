@@ -160,8 +160,8 @@ if onClient() then
 		-- finally, set our icons
 		indicator.secondaryIcon = orderIconToUse
 		indicator.tertiaryIcon = statusIconToUse
-		--indicator.secondaryIconColor = orderIconColorToUse
-		--indicator.tertiaryIconColor = statusIconColorToUse
+		indicator.secondaryIconColor = orderIconColorToUse
+		indicator.tertiaryIconColor = statusIconColorToUse
 
 		indicator = nil -- feed to the garbage collector
 
