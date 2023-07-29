@@ -40,6 +40,12 @@ local function pickCaptainClassFromName(className)
 	elseif className == "Daredevil" then
 		return CaptainUtility.ClassType.Daredevil
 
+	elseif className == "Scientist" then
+		return CaptainUtility.ClassType.Scientist
+
+	elseif className == "Hunter" then
+		return CaptainUtility.ClassType.Hunter
+
 	else
 		return nil
 
@@ -164,7 +170,7 @@ function execute(sender, commandName, ...)
 	end
 
 	-- add some free-floating crewmembers in case we need more gunners or something
-	newCrew:add( math.floor( newCrew.size / 10 ) ,CrewMan(CrewProfession(CrewProfessionType.None),false,0))
+	-- newCrew:add( math.floor( newCrew.size / 10 ) ,CrewMan(CrewProfession(CrewProfessionType.None),false,0))
 
 	craft.crew = newCrew
 

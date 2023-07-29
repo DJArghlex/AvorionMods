@@ -45,7 +45,7 @@ function execute(sender, commandName, ...)
 
 
 	for scriptId, scriptName in pairs(target:getScripts()) do
-		returnValue = returnValue .. tostring(scriptId) .. "|" .. tostring(scriptName)
+		returnValue = returnValue .. "\t(#" .. tostring(scriptId) .. "): " .. tostring(scriptName) .. "\n"
 	end
 
 	-- and return to the executing player.
