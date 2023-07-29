@@ -177,7 +177,36 @@ if onClient() then
 		end
 	end
 
+	-- concept from rinart73's galaxy map QOL for being loaded on clientside without serverside OK
+	function FleetIndicatorsBlockDamage.copyIntoOtherNamespace(targetNamespace)
+		print("rglx_fleetindicators_blockdamage: sideloading into another script's namespace...")
+		-- stash target namespace's updateClient function...
+		rglxBlockDamage_StashedUpdateClient = targetNamespace.updateClient
+		targetNamespace.updateClient = function(...)
+			-- and then shim it with this, which will also run ours.
+			if rglxBlockDamage_StashedUpdateClient then rglxBlockDamage_StashedUpdateClient(...) end
+			FleetIndicatorsBlockDamage.updateClient(...)
+		end
+
+		-- have to stash the onSectorChanged() function. not sure how healthy it will be registering the callback twice in both .initialize()s but we'll see.
+		rglxBlockDamage_StashedOnSectorChanged = targetNamespace.onSectorChanged
+		targetNamespace.onSectorChanged = function(...)
+			-- and then shim it with this, which will also run ours.
+			if rglxBlockDamage_StashedOnSectorChanged then rglxBlockDamage_StashedOnSectorChanged(...) end
+			FleetIndicatorsBlockDamage.onSectorChanged(...)
+		end
+
+		-- copy over all of our script's functions that the game will call into our new namespace.
+		-- the only exception is .getUpdateInterval(). we don't want to overwrite the values present in the musiccoordinator because that tends to mess with the speed which music changes.
+		-- targetNamespace.getUpdateInterval = FleetIndicatorsBlockDamage.getUpdateInterval
+		targetNamespace.onBlocksChanged = FleetIndicatorsBlockDamage.onBlocksChanged
+
+		-- now for .initialize() - we only need to run this once, and we don't need to copy it over into the new namespace.
+		FleetIndicatorsBlockDamage.initialize()
+	end
+
 	print("rglx_fleetindicators_blockdamage: ready!")
+	return FleetIndicatorsBlockDamage
 else
-	print("rglx_fleetindicators_blockdamage: loaded into client!")
+	print("rglx_fleetindicators_blockdamage: loaded into server! (this does nothing)")
 end

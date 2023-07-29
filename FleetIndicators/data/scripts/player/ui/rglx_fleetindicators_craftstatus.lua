@@ -190,7 +190,29 @@ if onClient() then
 		end
 	end
 
+	-- concept from rinart73's galaxy map QOL for being loaded on clientside without serverside OK
+	function FleetIndicatorsCraftStatus.copyIntoOtherNamespace(targetNamespace)
+		print("rglx_fleetindicators_orderinfo: sideloading into another script's namespace...")
+		-- stash target namespace's updateClient function...
+		rglxCraftStatus_StashedUpdateClient = targetNamespace.updateClient
+		targetNamespace.updateClient = function(...)
+			-- and then shim it with this, which will also run ours.
+			if rglxCraftStatus_StashedUpdateClient then rglxCraftStatus_StashedUpdateClient(...) end
+			FleetIndicatorsCraftStatus.updateClient(...)
+		end
+
+		-- copy over all of our script's functions that the game will call into our new namespace.
+		-- the only exception is .getUpdateInterval(). we don't want to overwrite the values present in the musiccoordinator because that tends to mess with the speed which music changes.
+		-- targetNamespace.getUpdateInterval = FleetIndicatorsCraftStatus.getUpdateInterval
+		targetNamespace.onShipOrderInfoUpdated = FleetIndicatorsCraftStatus.onShipOrderInfoUpdated
+
+		-- now for .initialize() - we only need to run this once, and we don't need to copy it over into the new namespace.
+		FleetIndicatorsCraftStatus.initialize()
+	end
+
+
 	print("rglx_fleetindicators_orderinfo: ready!")
+	return FleetIndicatorsCraftStatus
 else
-	print("rglx_fleetindicators_orderinfo: loaded into client!")
+	print("rglx_fleetindicators_orderinfo: loaded into server! (this does nothing)")
 end
