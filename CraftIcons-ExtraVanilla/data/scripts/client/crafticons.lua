@@ -50,3 +50,4 @@ table.insert(CraftIcons,"data/textures/icons/pixel/wreckage.png")
 
 
 print("rglx-CraftIcons-ExtraVanilla: loaded craft icons into client!")
+ 
