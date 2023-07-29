@@ -26,7 +26,7 @@ meta =
     -- This will be used to check for unmet dependencies or incompatibilities, and to check compatibility between clients and dedicated servers with mods.
     -- If a client with an unmatching major or minor mod version wants to log into a server, login is prohibited.
     -- Unmatching patch version still allows logging into a server. This works in both ways (server or client higher or lower version).
-    version = "0.0.1",
+    version = "2.3.1",
 
     -- If your mod requires dependencies, enter them here. The game will check that all dependencies given here are met.
     -- Possible attributes:
@@ -55,7 +55,7 @@ meta =
 
     -- Set to true if the mod changes the savegame in a potentially breaking way, as in it adds scripts or mechanics that get saved into database and no longer work once the mod gets disabled
     -- logically, if a mod is client-side only, it can't alter savegames, but Avorion doesn't check for that at the moment
-    saveGameAltering = false,
+    saveGameAltering = true,
 
     -- Contact info for other users to reach you in case they have questions
     contact = "Steam Workshop page",
