@@ -17,7 +17,8 @@ self.colorNonBlockingIssue 			 = ColorRGB( 1.00, 1.00, 0.25 ) -- color for a non
 
 -- compares the order info to entry's first field using lua '==' behavior, then last matching one is used.
 self.ordersToIconsExactMatch = {
-	{ "Idle", "" }, -- removes icon entirely
+	{ "Idle", 	 "", 	 self.colorOrder }, -- removes icon.
+	{ "[PLAYER]", 	 "data/textures/icons/pixel/player.png", 	 self.colorOrder }, -- more triangular player icon
 	{ "Attacking Enemies", 	 "data/textures/icons/pixel/attacking.png", 	 self.colorOrder }, -- crossed swords icon
 	{ "Patrolling Sector", 	 "data/textures/icons/pixel/patrol.png", 	 self.colorOrder }, -- points with line between
 	{ "Flying to Position", 	 "data/textures/icons/pixel/flytoposition.png", 	 self.colorOrder }, -- basically a skip icon
