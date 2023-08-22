@@ -91,7 +91,7 @@ function execute(sender, commandName, ...)
 		leader = Player(targetAlliance.leader)
 		members = {targetAlliance:getMembers()}
 		if server:isOnline(targetAlliance.index) then -- report wether the alliance is considered online by the server.
-			factionInformation = factionInformation .. tabCharacter .. "Alliance considered online by simulation."
+			factionInformation = factionInformation .. tabCharacter .. "Alliance considered online by simulation.\n"
 		end
 		for _,memberId in pairs(members) do
 			allianceMember = Player(memberId)
