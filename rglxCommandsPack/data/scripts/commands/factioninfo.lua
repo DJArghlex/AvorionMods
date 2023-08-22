@@ -90,6 +90,9 @@ function execute(sender, commandName, ...)
 		factionInformation = factionInformation .. "Membership & online status:\n"
 		leader = Player(targetAlliance.leader)
 		members = {targetAlliance:getMembers()}
+		if server:isOnline(targetAlliance.index) then -- report wether the alliance is considered online by the server.
+			factionInformation = factionInformation .. tabCharacter .. "Alliance considered online by simulation."
+		end
 		for _,memberId in pairs(members) do
 			allianceMember = Player(memberId)
 			factionInformation = factionInformation .. tabCharacter .. allianceMember.name .. " (#" .. allianceMember.index .. ")"
@@ -259,7 +262,7 @@ function execute(sender, commandName, ...)
 				if targetPlayer.alliance.leader == targetPlayer.index then 
 					factionInformation = factionInformation .. "Leader of " .. #{targetPlayer.alliance:getMembers()} .. "-player alliance '" .. targetPlayer.alliance.name .. "' (#" .. targetPlayer.alliance.index .. ")\n"
 				else
-					factionInformation = factionInformation .. "Member of " .. #{targetPlayer.alliance:getMembers()} .. "-player  alliance '" .. targetPlayer.alliance.name .. "' (#" .. targetPlayer.alliance.index .. ")\n"
+					factionInformation = factionInformation .. "Member of " .. #{targetPlayer.alliance:getMembers()} .. "-player alliance '" .. targetPlayer.alliance.name .. "' (#" .. targetPlayer.alliance.index .. ")\n"
 				end
 			end
 		else
@@ -269,14 +272,14 @@ function execute(sender, commandName, ...)
 		-- get some information about the player's group, if they have one
 		if targetPlayer.group ~= nil then
 			-- list players, denote leader, show number of members in the group 
-			factionInformation = "In a " .. targetPlayer.group.size .. "-player group with:\n"
+			factionInformation = factionInformation .. "In a " .. targetPlayer.group.size .. "-player group with:\n"
 			for _,playerId in pairs({targetPlayer.group:getPlayers()}) do
 				-- for each playerID in the group, get their name, and if they're online or not.
 				groupPlayer = Player(playerId)
-				if targetPlayer.group.leader == playerId then
-					factionInformation = factionInformation .. tabCharacter .. groupPlayer.name .. " (#" .. groupPlayer.index .. ")\n"
-				else
+				if targetPlayer.group.leader == groupPlayer.index then -- denote "leader" player of group
 					factionInformation = factionInformation .. tabCharacter .. groupPlayer.name .. " (#" .. groupPlayer.index .. ") [leader]\n"
+				else
+					factionInformation = factionInformation .. tabCharacter .. groupPlayer.name .. " (#" .. groupPlayer.index .. ")\n"
 				end
 			end
 
