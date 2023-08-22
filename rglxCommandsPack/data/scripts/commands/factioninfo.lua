@@ -327,7 +327,7 @@ function execute(sender, commandName, ...)
 				for trait, potency in pairs(factionTraits) do
 					if tonumber(potency) > 0 then
 						factionBehavioralValues = factionBehavioralValues + 1
-						factionBehavioralTraits = factionBehavioralTraits .. trait .. ": " .. math.floor( tonumber(potency) * 100) .. "%, "
+						factionBehavioralTraits = factionBehavioralTraits .. trait .. ":" .. math.floor( tonumber(potency) * 100) .. "% "
 					end
 				end
 				if factionBehavioralValues > 0 then
