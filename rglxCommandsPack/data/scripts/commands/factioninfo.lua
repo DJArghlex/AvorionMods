@@ -322,7 +322,7 @@ function execute(sender, commandName, ...)
 			if factionTraits == nil then
 				factionInformation = factionInformation .. "Faction has no behavioral traits.\n"
 			else
-				local factionBehavioralTraits = "Faction behavioral traits: "
+				local factionBehavioralTraits = "Faction behavioral traits: \n" .. tabCharacter
 				local factionBehavioralValues = 0
 				for trait, potency in pairs(factionTraits) do
 					if tonumber(potency) > 0 then
