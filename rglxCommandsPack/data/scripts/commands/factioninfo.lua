@@ -24,6 +24,15 @@ local function round(number, decimals)
     return math.floor(number * power) / power
 end
 
+-- "patch" 2.0 release bug that irreversibly added this to all the generated names in the galaxy.
+local function formatFactionName(factionName)
+	stringToRemove = "/*This refers to factions, such as 'The Xsotan'.*/"
+	if ends_with(factionName, stringToRemove) then
+		return string.sub(factionName,1,( -1 - string.len(stringToRemove)))
+	else
+		return factionName
+	end
+end
 
 function execute(sender, commandName, ...)
 	local args = {...}
@@ -289,7 +298,7 @@ function execute(sender, commandName, ...)
 
 	elseif galaxy:aiFactionExists(targetFactionIndex) then
 		targetNpcFaction = Faction(targetFactionIndex)
-		factionInformation = "Information about NPC Faction '" .. targetNpcFaction.name .. "' (#" .. targetNpcFaction.index .. "):\n"
+		factionInformation = "Information about NPC Faction '" .. formatFactionName(targetNpcFaction.name) .. "' (#" .. targetNpcFaction.index .. "):\n"
 
 
 		-- get some information about the player's meta-sectors
@@ -345,7 +354,7 @@ function execute(sender, commandName, ...)
 					if validFactions >= 0 then
 						-- only run Faction() calls and append to this list if we've not gone over the set limit of information to report
 						relatedFaction = Faction(relation.factionIndex)
-						factionInformation = factionInformation .. tabCharacter .. relation.translatedStatus .. " with " .. relatedFaction.name .. " (#" .. relation.factionIndex .. ") [" .. relation.level .. " pts]\n"
+						factionInformation = factionInformation .. tabCharacter .. relation.translatedStatus .. " with " .. formatFactionName(relatedFaction.name) .. " (#" .. relation.factionIndex .. ") [" .. relation.level .. " pts]\n"
 					end
 				end
 			end
