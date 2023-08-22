@@ -342,7 +342,7 @@ function execute(sender, commandName, ...)
 			for _,relation in pairs(npcFactionRelations) do
 				if galaxy:aiFactionExists(relation.factionIndex) then
 					validFactions = validFactions - 1
-					if validFactions > 0 then
+					if validFactions >= 0 then
 						-- only run Faction() calls and append to this list if we've not gone over the set limit of information to report
 						relatedFaction = Faction(relation.factionIndex)
 						factionInformation = factionInformation .. tabCharacter .. relation.translatedStatus .. " with " .. relatedFaction.name .. " (#" .. relation.factionIndex .. ") [" .. relation.level .. " pts]\n"
