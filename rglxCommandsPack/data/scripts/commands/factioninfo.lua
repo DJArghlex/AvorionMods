@@ -338,7 +338,7 @@ function execute(sender, commandName, ...)
 			factionInformation = factionInformation .. "Faction has no relations with other NPC factions."
 		else
 			factionInformation = factionInformation .. "Faction relations:\n"
-			local validFactions = 10 -- change this number to adjust how many NPC factions to report relations back to
+			local validFactions = 40 -- change this number to adjust how many NPC factions to report relations back to
 			for _,relation in pairs(npcFactionRelations) do
 				if galaxy:aiFactionExists(relation.factionIndex) then
 					validFactions = validFactions - 1
