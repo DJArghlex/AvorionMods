@@ -338,11 +338,20 @@ function execute(sender, commandName, ...)
 			factionInformation = factionInformation .. "Faction has no relations with other NPC factions."
 		else
 			factionInformation = factionInformation .. "Faction relations:\n"
+			local validFactions = 10 -- change this number to adjust how many NPC factions to report relations back to
 			for _,relation in pairs(npcFactionRelations) do
 				if galaxy:aiFactionExists(relation.factionIndex) then
-					relatedFaction = Faction(relation.factionIndex)
-					factionInformation = factionInformation .. tabCharacter .. relation.translatedStatus .. " with " .. relatedFaction.name .. " (#" .. relation.factionIndex .. ") [" .. relation.level .. " pts]\n"
+					validFactions = validFactions - 1
+					if validFactions > 0 then
+						-- only run Faction() calls and append to this list if we've not gone over the set limit of information to report
+						relatedFaction = Faction(relation.factionIndex)
+						factionInformation = factionInformation .. tabCharacter .. relation.translatedStatus .. " with " .. relatedFaction.name .. " (#" .. relation.factionIndex .. ") [" .. relation.level .. " pts]\n"
+					end
 				end
+			end
+			if validFactions < 0 then
+				-- if we have gone negative, this means the list is now X items long, and we should report back that there are more than that many relations to other factions.
+				factionInformation = factionInformation .. tabCharacter .. "[... and " .. validFactions * -1 .. " more faction relations]"
 			end
 		end
 
