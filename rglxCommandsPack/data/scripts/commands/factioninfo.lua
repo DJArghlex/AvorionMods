@@ -316,7 +316,7 @@ function execute(sender, commandName, ...)
 				local factionBehavioralTraits = "Faction behavioral traits:\n"
 				local factionBehavioralValues = 0
 				for trait, potency in pairs(factionTraits) do
-					if tonumber(potency) < 0 then
+					if tonumber(potency) > 0 then
 						factionBehavioralValues = factionBehavioralValues + 1
 						factionBehavioralTraits = factionBehavioralTraits .. tabCharacter .. trait .. ": " .. math.floor( tonumber(potency) * 100) .. "%\n"
 					end
