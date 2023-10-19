@@ -27,7 +27,7 @@ if onServer() then
 		server:registerCallback("onPlayerLogIn", "onPlayerLogIn")
 		server:registerCallback("onPlayerLogOff", "onPlayerLogOff")
 		-- header for this server's session
-		rglxServerLibSeparatedChatLog.writeTextToFile("<Server> -1\t[Server]\tChat logging begun.")
+		rglxServerLibSeparatedChatLog.writeTextToFile("<Server>\t-1\t[Server]\tChat logging begun.")
 	end
 
 	-- shim functions so we can standardize log output easier
@@ -40,7 +40,7 @@ if onServer() then
 	end
 
 	function rglxServerLibSeparatedChatLog.onChatMessage(playerIndex, text, channel)
-		print("chatMsg",playerIndex,text,channel)
+		--print("chatMsg",playerIndex,text,channel)
 		-- index and text are self explanatory
 		-- channel can be: 0 = galaxywide, 1 = sectorwide, 2 = that player's group, or 3 = that player's alliance
 		local player = Player(playerIndex) -- get our player object
@@ -99,7 +99,7 @@ if onServer() then
 		end
 
 		-- don't need to include a timestamp, the logwriter does that for us
-		local outputMessage = "<" .. player.name .. "> " .. playerIndex .. "\t[" .. channelString .. "]\t" .. text
+		local outputMessage = "<" .. player.name .. ">\t" .. playerIndex .. "\t[" .. channelString .. "]\t" .. text
 
 		-- and write out
 		rglxServerLibSeparatedChatLog.writeTextToFile(outputMessage)
