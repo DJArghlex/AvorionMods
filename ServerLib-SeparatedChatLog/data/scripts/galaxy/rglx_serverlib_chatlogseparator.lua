@@ -40,8 +40,6 @@ if onServer() then
 	end
 
 	function rglxServerLibSeparatedChatLog.onChatMessage(playerIndex, text, channel)
-		--
-		print("chatMsg",playerIndex,text,channel)
 		-- index and text are self explanatory
 		-- channel can be: 0 = galaxywide, 1 = sectorwide, 2 = that player's group, or 3 = that player's alliance
 		local player = Player(playerIndex) -- get our player object
