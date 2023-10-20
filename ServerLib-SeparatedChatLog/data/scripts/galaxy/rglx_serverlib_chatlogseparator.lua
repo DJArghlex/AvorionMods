@@ -40,7 +40,8 @@ if onServer() then
 	end
 
 	function rglxServerLibSeparatedChatLog.onChatMessage(playerIndex, text, channel)
-		--print("chatMsg",playerIndex,text,channel)
+		--
+		print("chatMsg",playerIndex,text,channel)
 		-- index and text are self explanatory
 		-- channel can be: 0 = galaxywide, 1 = sectorwide, 2 = that player's group, or 3 = that player's alliance
 		local player = Player(playerIndex) -- get our player object
@@ -111,7 +112,9 @@ if onServer() then
 		local server = Server()
 		local logFileHandle = io.open(server.folder .. "/" .. "serverlog chat-all.log","a+")
 		if logFileHandle ~= nil then
-			logFileHandle:write(os.date("%Y-%m-%d %X") .. "\t" .. message .. "\n")
+			local nowAppTime = appTime() -- provided by avorion scripting API, and completely overlooked most of the time
+			nowAppTime = (nowAppTime - math.floor(nowAppTime)) * 1000000 -- Get appTime and convert to microseconds
+			logFileHandle:write(os.date("%Y-%m-%d %X.") .. string.format("%06d", nowAppTime) .. "\t" .. message .. "\n")
 			io.close(logFileHandle)
 		else
 			eprint("rglx_ServerLib_SeparatedChatLog: ERROR! could not open log file for writing.")
