@@ -22,10 +22,12 @@ if onServer() then
 
 	function rglxServerLibSeparatedChatLog.initialize()
 		local server = Server()
+		local galaxy = Galaxy()
 		-- register the three callbacks we need
 		server:registerCallback("onChatMessage", "onChatMessage")
 		server:registerCallback("onPlayerLogIn", "onPlayerLogIn")
 		server:registerCallback("onPlayerLogOff", "onPlayerLogOff")
+		galaxy:registerCallback("onPlayerCreated", "onPlayerCreated")
 		-- header for this server's session
 		rglxServerLibSeparatedChatLog.writeTextToFile("<Server>\t-1\t[Server]\tChat logging begun.")
 	end
@@ -37,6 +39,10 @@ if onServer() then
 
 	function rglxServerLibSeparatedChatLog.onPlayerLogOff(playerIndex)
 		rglxServerLibSeparatedChatLog.onChatMessage(playerIndex,false,4)
+	end
+
+	function rglxServerLibSeparatedChatLog.onPlayerCreated(playerIndex)
+		rglxServerLibSeparatedChatLog.onChatMessage(playerIndex,false,5)
 	end
 
 	function rglxServerLibSeparatedChatLog.onChatMessage(playerIndex, text, channel)
@@ -78,6 +84,9 @@ if onServer() then
 			else
 				text = "Left the galaxy."
 			end
+		elseif channel == 5 then
+			channelString = "Create"
+			text = "created!"
 		else
 			eprint("rglx_ServerLib_SeparatedChatLog: got a message with a bad channel number")
 			return
