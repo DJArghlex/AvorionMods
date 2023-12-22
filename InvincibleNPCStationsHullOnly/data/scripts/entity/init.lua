@@ -19,19 +19,18 @@ if onServer() then
 
 			-- exempt the one station in the Black Market DLC's Family questline
 			if s == "Jackson" then
-				b == true
+				b = true
 			end
-			
-			if b ~= true then
-				-- okay, so it's not a pirate-owned station. let's make it invincible then.
 
-				entity.invincible = true -- make hull undamageable
+			local entityDurability = Durability(entity.id)
+			entity.invincibility = 0.15 -- make hull undamageable
 
+			local entityBoarding = Boarding(entity.id)
+			entityBoarding.boardable = false -- prevent boarding
 
-				entityBoarding = Boarding(entity.id)
-				entityBoarding.boardable = false -- prevent boarding
+			-- add our script to cause a sector with a heavily damaged station to call itself out as a warzone
+			entity:addScriptOnce("rglx_ServerLib_makeSectorWarzoneOnLowHealth")
 
-			end
 		end
 	end
 end

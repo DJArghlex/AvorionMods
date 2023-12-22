@@ -19,7 +19,7 @@ if onServer() then
 
 			-- exempt the one station in the Black Market DLC's Family questline
 			if s == "Jackson" then
-				b == true
+				b = true
 			end
 
 			if b ~= true then

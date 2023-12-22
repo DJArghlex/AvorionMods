@@ -4,8 +4,8 @@ local vanillaInitializeSmugglerRep = initialize
 function initialize()
 	vanillaInitializeSmugglerRep()
 
-	local entity = Entity()
-	entity.invincible = true -- make hull undamageable
+	local entityDurability = Durability(entity.id)
+	entity.invincibility = 0.15 -- make hull undamageable
 
 	local entityBoarding = Boarding(entity.id)
 	entityBoarding.boardable = false -- prevent boarding
