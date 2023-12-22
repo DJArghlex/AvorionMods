@@ -3,7 +3,8 @@ FleetIndicatorsCraftStatus = {}
 local self = FleetIndicatorsCraftStatus
 
 -- /run Player():removeScript("ui/rglx_fleetindicators_craftstatus")
--- /run Player():addScriptOnce("ui/rglx_fleetindicators_craftstatus") 
+-- /run Player():addScriptOnce("ui/rglx_fleetindicators_craftstatus")
+-- /run Player():removeScript("client/musiccoordinator.lua"); Player():addScriptOnce("client/musiccoordinator.lua")
 
 -- order to icon & color settings
 -- exact matches are processed last, meaning they'll take precedence over startsWith() matches
@@ -33,7 +34,9 @@ self.ordersToIconsStartsWith = {
 	{ "Escorting", 	 "data/textures/icons/pixel/escort.png", 	 self.colorOrder },
 	{ "Repairing", 	 "data/textures/icons/pixel/repair.png", 	 self.colorOrder },
 	{ "Salvaging", 	 "data/textures/icons/pixel/salvaging.png", 	 self.colorOrder },
+	{ "Collecting Salvaged Loot", 	 "data/textures/icons/pixel/salvaging.png", 	 self.colorOrder },
 	{ "Mining", 	 "data/textures/icons/pixel/mining.png", 	 self.colorOrder },
+	{ "Collecting Mined Loot", 	 "data/textures/icons/pixel/mining.png", 	 self.colorOrder },
 	{ "Flying Through", 	 "data/textures/icons/pixel/vortex.png", 	 self.colorOrder },
 	{ "Jumping", 	 "data/textures/icons/pixel/vortex.png", 	 self.colorOrder },
 	{ "Refining", 	 "data/textures/icons/pixel/refine.png", 	 self.colorOrder }, -- using instead of the 'stack of bricks' icon
@@ -42,7 +45,13 @@ self.ordersToIconsStartsWith = {
 
 -- same deal here, but these handle the craft status icon (the tertiary icon slot)
 self.ordersToProblemsExactMatch = {
-	{ "Refining Ores - Waiting For Processing", 	 "data/textures/icons/pixel/sleep.png", 	 self.colorNonBlockingIssue },
+	{ "Salvaging - No Wreckages Left", 	 "data/textures/icons/pixel/wreckage.png", 	 self.colorBlockingIssue },
+	{ "Mining - No Asteroids Left", 	 "data/textures/icons/pixel/asteroid.png", 	 self.colorBlockingIssue },
+	{ "Refining Ores - Waiting for Processing", 	 "data/textures/icons/pixel/sleep.png", 	 self.colorNonBlockingIssue },
+	{ "Refining Ores - Docking", 	 "data/textures/icons/pixel/flytoposition.png", 	 self.colorNonBlockingIssue },
+	{ "Refining Ores - Collecting Resources", 	 "data/textures/icons/pixel/trade.png", 	 self.colorNonBlockingIssue },
+	{ "Collecting Mined Loot", 	 "data/textures/icons/pixel/trade.png", 	 self.colorOrder },
+	{ "Collecting Salvaged Loot", 	 "data/textures/icons/pixel/trade.png", 	 self.colorOrder },
 }
 self.ordersToProblemsStartsWith = {
 	{ "Refining Ores - ", 	 "data/textures/icons/pixel/exclamation-mark.png", 	 self.colorBlockingIssue },
@@ -112,7 +121,7 @@ if onClient() then
 		local currentActivity = owningFaction:getShipStatus(entity.name)
 
 		if currentActivity ~= "[PLAYER]" and currentActivity ~= "" and currentActivity ~= "Idle" and currentActivity ~= nil then
-			--print("rglx_fleetindicators_orderinfo:",entity.name,"@",currentActivity)
+			print("rglx_fleetindicators_orderinfo: craft " .. entity.name .. " is '" .. currentActivity .. "'")
 		end
 
 		-- set up some initial variables
