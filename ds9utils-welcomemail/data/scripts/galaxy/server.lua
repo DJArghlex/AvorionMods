@@ -63,6 +63,9 @@ do
 		k_ogonite = false,
 		k_avorion = false,
 
+		-- reconstruction tokens to include
+		k_unboundReconstructionTokens = 10,
+
 	}
 
 	-- https://stackoverflow.com/questions/4990990/check-if-a-file-exists-with-lua
@@ -189,6 +192,14 @@ do
 		if __d.k_avorion == true then
 			__mail:addItem(UsableInventoryItem("buildingknowledge.lua", Rarity(RarityType.Exotic), Material(MaterialType.Avorion), __player.index))
 			print("attached building knowledge for avorion to " .. __player.name .. "'s (#" .. __player.index .. ") welcome mail")
+		end
+
+		if __d.k_unboundReconstructionTokens > 0 then
+			local item = UsableInventoryItem("unbrandedreconstructionkit.lua", Rarity(RarityType.Legendary))
+			for y=1,__d.k_unboundReconstructionTokens do
+				__mail:addItem(item)
+			end
+			print("attached an unbound reconstruction kit to " .. __player.name .. "'s (#" .. __player.index .. ") welcome mail")
 		end
 
 		if __mailfile then
