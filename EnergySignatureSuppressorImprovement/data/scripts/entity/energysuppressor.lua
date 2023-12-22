@@ -13,7 +13,7 @@ function EnergySuppressor.updateServer(timeStep)
 		--print("rglx-ESSImprovements: an energy signature suppressor burned out somewhere...")
 		local entity = Entity()
 		entity:clearValues() -- allow things to spawn in
-		Sector():destroy(entity) -- better method- silently removes the entity
+		Sector():deleteEntity(entity) -- better method- silently removes the entity
 		--entity:destroy(entity.id) -- old method- makes a lot of chat spam.
 		--print("an energy suppressor has burnt out in:", x, y)
 		terminate()
