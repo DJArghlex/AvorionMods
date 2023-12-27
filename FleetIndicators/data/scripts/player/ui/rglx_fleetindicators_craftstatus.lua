@@ -120,7 +120,7 @@ if onClient() then
 
 		local currentActivity = owningFaction:getShipStatus(entity.name)
 
-		if currentActivity ~= "[PLAYER]" and currentActivity ~= "" and currentActivity ~= "Idle" and currentActivity ~= nil then
+		if currentActivity ~= "[PLAYER]" and currentActivity ~= "" and currentActivity ~= "Idle" and currentActivity ~= nil and Player():getValue("rglx_debug") then
 			print("rglx_fleetindicators_orderinfo: craft " .. entity.name .. " is '" .. currentActivity .. "'")
 		end
 

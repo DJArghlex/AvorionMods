@@ -119,8 +119,8 @@ if onClient() then
 
 		local percentage = percentageMissingBlocks
 
-		if percentage ~= 1.0 then
-			--print("rglx_fleetindicators_blockdamage:",entity.name,"@",(percentage * 100) .. "%")
+		if percentage ~= 1.0 and Player():getValue("rglx_debug") then
+			print("rglx_fleetindicators_blockdamage:",entity.name,"@",(percentage * 100) .. "%")
 		end
 
 		local indicator = EntityIcon(entity)
