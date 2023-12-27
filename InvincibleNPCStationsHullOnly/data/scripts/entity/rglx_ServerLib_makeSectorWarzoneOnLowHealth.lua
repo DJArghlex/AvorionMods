@@ -55,7 +55,7 @@ if onServer() then
 			return
 		end
 
-		if durability.filledPercentage =< self.callWarzoneAtHealth then
+		if durability.filledPercentage <= self.callWarzoneAtHealth then
 			-- we're below our hull percentage, so let's make the sector a warzone
 			makeSectorWarzoneOnLowHealth.makeWarzone()
 			-- heal ourself
