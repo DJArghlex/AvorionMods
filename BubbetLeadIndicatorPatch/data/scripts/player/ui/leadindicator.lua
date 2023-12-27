@@ -53,21 +53,16 @@ function LeadIndicator.onPostRenderHud(state) -- called each frame, after the HU
 	end
 end
 
--- concept from rinart73's galaxy map QOL for being loaded on clientside without serverside OK
-function LeadIndicator.copyIntoOtherNamespace(targetNamespace)
-	print("rglx_LeadIndicatorPatch: sideloading into another script's namespace...")
-
-	-- stash existing namespace's functions
-	-- typically only things you have callbacks being registered for need to be copied over. everything else can be referenced by your code safely
-	--musiccoordinator doesn't have a function named onPostRenderHud
-
-	-- copy our new functions in
-	targetNamespace.onPostRenderHud = LeadIndicator.onPostRenderHud
-
-	-- after that, all we need to do is initialize our mod's code
-	-- don't need to copy that into the namespace at all really, just run it.
-	LeadIndicator.initialize()
+-- we're only ever loaded via shimming musiccoordinator with this script, so a lot of stuff can be skipped outright
+-- only do the "return" if we're shim-loaded
+if onClient() then
+--	local scriptPresentInPlayerScripts = nil
+--	for id,scriptname in ipairs(Player():getScripts()) do
+--		if scriptname == "ui/leadindicator" then
+--			scriptPresentInPlayerScripts = true
+--		end
+--	end
+--	if not scriptPresentInPlayerScripts then
+		return LeadIndicator
+--	end
 end
-
-print("rglx_LeadIndicatorPatch: ready!")
-return LeadIndicator -- because we're loading this mod only with include() we need to do this
