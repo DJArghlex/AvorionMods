@@ -12,8 +12,8 @@ function EventUT.OOSattackEventAllowed()
     end
 
     local sectorX, sectorY = sector:getCoordinates()
-    if galaxy:sectorInRift(sectorX,sectorY) then
-        --print ("prevented a wave attack inside a rift sector")
+    if Galaxy():sectorInRift(sectorX,sectorY) then
+        --print("prevented a wave attack inside a rift sector")
         return false
     end
 
