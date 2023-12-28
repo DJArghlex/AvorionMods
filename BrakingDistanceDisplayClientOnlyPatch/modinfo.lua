@@ -4,7 +4,7 @@ meta =
     -- ID of your mod; Make sure this is unique!
     -- Will be used for identifying the mod in dependency lists
     -- Will be changed to workshop ID (ensuring uniqueness) when you upload the mod to the workshop
-    id = "BrakingDistanceDisplayClientOnlyPatch",
+    id = "3124478027",
 
     -- Name of your mod; You may want this to be unique, but it's not absolutely necessary.
     -- This is an additional helper attribute for you to easily identify your mod in the Mods() list
@@ -26,7 +26,7 @@ meta =
     -- This will be used to check for unmet dependencies or incompatibilities, and to check compatibility between clients and dedicated servers with mods.
     -- If a client with an unmatching major or minor mod version wants to log into a server, login is prohibited.
     -- Unmatching patch version still allows logging into a server. This works in both ways (server or client higher or lower version).
-    version = "0.1.0",
+    version = "0.1",
 
     -- If your mod requires dependencies, enter them here. The game will check that all dependencies given here are met.
     -- Possible attributes:
